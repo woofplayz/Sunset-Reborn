@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial, sans-serif;
+        transition: 0.3s ease;
+      }
+
+      /* DARK */
+      :root {
+        --background-color: #121212;
+        --seperator-color: #1e1e1e;
+        --light-hover-bg: #222222;
+        --selected-color: #2f2e2e;
+        --newtab-text-color: #5f6368;
+        --light-color: #e5e5e5;
+        --light-bg: #1b1b1b;
+        --svg-shade: #a5a5a5;
+        --background-img: url("wallpapersden.com_black-4k-windows-11-original_5120x2880.jpg");
+      }
+
+      /* LIGHT */
+      .light {
+        --background-color: #f0f0f0;
+        --seperator-color: #dcdcdc;
+        --light-hover-bg: #e0e0e0;
+        --selected-color: #c1c1c1;
+        --newtab-text-color: #3c4043;
+        --light-color: #333333;
+        --light-bg: #ffffff;
+        --svg-shade: #7f7f7f;
+        --background-img: url("4k-Windows-11-White-Abstract-Background-4K-Wallpaper.jpg");
+      }
+
+      /* CRIMSON */
+      .crimson {
+        --background-color: #2c0a0a;
+        --seperator-color: #450d0d;
+        --light-hover-bg: #6a1414;
+        --selected-color: #8b1c1c;
+        --newtab-text-color: #e15c5c;
+        --light-color: #f2a5a5;
+        --light-bg: #511313;
+        --svg-shade: #d26161;
+        --background-img: url("4k-Windows-11-Abstract-Red-Bloom-4K-Wallpaper.jpg");
+      }
+
+      /* DARK ORANGE */
+      .darkOrange {
+        --background-color: #2e1a08;
+        --seperator-color: #5c2c11;
+        --light-hover-bg: #8c3c1f;
+        --selected-color: #b65c32;
+        --newtab-text-color: #ff914d;
+        --light-color: #ffcc99;
+        --light-bg: #7c3e18;
+        --svg-shade: #ff6f3d;
+        --background-img: url("4k-Windows-11-Abstract-Orange-Bloom-4K-Wallpaper.jpg");
+      }
+
+      /* DARK YELLOW */
+      .darkYellow {
+        --background-color: #3c2c00;
+        --seperator-color: #6e4e16;
+        --light-hover-bg: #b78c2e;
+        --selected-color: #d0a02e;
+        --newtab-text-color: #f2e15c;
+        --light-color: #fef7a1;
+        --light-bg: #7f6b2e;
+        --svg-shade: #e1c340;
+        --background-img: url("wallpapersden.com_minimal-artistic-desert-sunset_5760x3240.jpg");
+      }
+
+      /* GREEN */
+      .green {
+        --background-color: #3e4b3e;
+        --seperator-color: #5a6d5a;
+        --light-hover-bg: #5f775f;
+        --selected-color: #4e6e4e;
+        --newtab-text-color: #d6d6d6;
+        --light-color: #ffffff;
+        --light-bg: #4b5b4b;
+        --svg-shade: #8f9e8f;
+        --background-img: url("green_windows_11_logo_in_green_background_4k_hd_windows_11.jpg");
+      }
+
+      /* BLUE */
+      .blue {
+        --background-color: #0a1f3b;
+        --seperator-color: #1f3e6d;
+        --light-hover-bg: #2e5797;
+        --selected-color: #4a7eb6;
+        --newtab-text-color: #7aa9d6;
+        --light-color: #a7c4e6;
+        --light-bg: #234d7f;
+        --svg-shade: #6c98c7;
+        --background-img: url("4k-Windows-11-Abstract-Blue-Background-4K-Desktop-Wallpaper.jpg");
+      }
+
+      /* PURPLE */
+      .purple {
+        --background-color: #2c1a57;
+        --seperator-color: #3f2b6f;
+        --light-hover-bg: #4c3a7f;
+        --selected-color: #5c2f8b;
+        --newtab-text-color: #f1c6f0;
+        --light-color: #f7f1f9;
+        --light-bg: #452673;
+        --svg-shade: #8d6ba8;
+        --background-img: url("4k-Windows-11-365-Abstract-Purple-Background-Digital-Art-4K-Wallpaper.jpg");
+      }
+
+      body {
+        background-color: var(--background-color);
+        color: var(--light-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        text-align: center;
+        background-color: var(--light-bg);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        font-size: 3rem;
+        color: var(--svg-shade);
+      }
+
+      p {
+        font-size: 1.2rem;
+        color: var(--newtab-text-color);
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        color: var(--light-color);
+        background-color: var(--selected-color);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 1rem;
+      }
+
+      button:hover {
+        background-color: var(--light-hover-bg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>404</h1>
+      <p>Something went wrong.</p>
+      <button onclick="goBack()">Go Back</button>
+    </div>
+
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+    <script>
+      window.addEventListener("message", function (event) {
+        const theme = event.data.theme;
+        console.log("themeememeemm");
+
+        if (theme) {
+          applyTheme(theme);
+        }
+      });
+
+      function applyTheme(theme) {
+        localStorage.setItem("selectedTheme", theme);
+
+        const body = document.body;
+
+        switch (theme) {
+          case "dark":
+            body.setAttribute("class", "dark");
+            break;
+          case "light":
+            body.setAttribute("class", "light");
+            break;
+          case "crimson":
+            body.setAttribute("class", "crimson");
+            break;
+          case "orange":
+            body.setAttribute("class", "darkOrange");
+            break;
+          case "yellow":
+            body.setAttribute("class", "darkYellow");
+            break;
+          case "green":
+            body.setAttribute("class", "green");
+            break;
+          case "blue":
+            body.setAttribute("class", "blue");
+            break;
+          case "purple":
+            body.setAttribute("class", "purple");
+            break;
+          default:
+            console.warn("whoever made this ");
+            break;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+          applyTheme(savedTheme);
+        }
+      });
+    </script>
+  </body>
+</html>

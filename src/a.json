@@ -1,0 +1,177 @@
+[
+    {
+      "name": "Tik Tok",
+      "img": "/imgs/apps/tiktok.jpg",
+      "url": "https://tiktok.com",
+      "description": "Tik Tok is a dynamic social media platform for creating and sharing short-form videos, where users add music, effects, and trends to express creativity and connect with a global audience."
+    },
+    {
+      "name": "Youtube",
+      "img": "/imgs/apps/youtube.png",
+      "url": "https://youtube.com",
+      "description": "Youtube is the world’s largest video-sharing website, offering a vast library of user-generated and professional content that spans tutorials, entertainment, music, news, and more."
+    },
+    {
+      "name": "Soundcloud",
+      "img": "assets/img/assets/soundcloud.png",
+      "url": "https://soundcloud.com",
+      "description": "Soundcloud is a global audio platform where musicians and creators upload, share, and discover original tracks, remixes, and podcasts, fostering an engaged community of independent artists."
+    },
+    {
+      "name": "HiAnime",
+      "img": "/imgs/apps/hianime.jpg",
+      "url": "https://hianime.to/",
+      "description": "HiAnime is a dedicated streaming site catering to anime fans, featuring a broad selection of popular series and movies so viewers can enjoy both classic titles and new releases."
+    },
+    {
+      "name": "Crazygames",
+      "img": "/imgs/apps/crazygames.png",
+      "url": "https://crazygames.com",
+      "description": "Crazygames is an online gaming hub that hosts a diverse collection of free, browser-based games across genres, offering instant gameplay without the need for downloads."
+    },
+    {
+      "name": "Xbox Cloud Gaming",
+      "img": "/imgs/apps/xbox.png",
+      "url": "https://xbox.com/play",
+      "description": "Xbox Cloud Gaming is Microsoft’s cloud gaming service that streams a library of Xbox titles directly to your device, enabling a console-quality gaming experience without high-end hardware."
+    },
+    {
+      "name": "Figgs AI",
+      "img": "/imgs/apps/fig.png",
+      "url": "https://www.figgs.ai/",
+      "description": "Figgs AI is an innovative platform that harnesses artificial intelligence to provide creative tools and productivity solutions, helping users enhance workflows and spark new ideas."
+    },
+    {
+      "name": "Spotify",
+      "img": "/imgs/apps/spotify2.png",
+      "url": "https://spotify.com",
+      "description": "Spotify is a leading digital music streaming service that provides access to millions of songs, curated playlists, and podcasts, offering personalized listening experiences across devices."
+    },
+    {
+      "name": "Now.gg",
+      "img": "/imgs/apps/nowgg2.png",
+      "url": "https://now.gg",
+      "description": "Now.gg is a cloud gaming platform that lets you play high-quality games directly in your browser, eliminating the need for downloads and ensuring quick, accessible gameplay."
+    },
+    {
+      "name": "VS Code",
+      "img": "/imgs/apps/vscode2.png",
+      "url": "https://vscode.dev",
+      "description": "VS Code (Visual Studio Code) is a lightweight yet powerful code editor from Microsoft that supports a wide array of programming languages and tools, making development, debugging, and collaboration efficient."
+    },
+    {
+      "name": "Coolmathgames",
+      "img": "/imgs/apps/cmg2.png",
+      "url": "https://coolmathgames.com",
+      "description": "Coolmathgames is an interactive website offering a variety of fun and educational games, especially focused on math and logic puzzles designed to challenge and entertain users of all ages."
+    },
+    {
+      "name": "Discord",
+      "img": "/imgs/apps/discord.jpg",
+      "url": "https://discord.com",
+      "description": "Discord is a versatile communication platform that combines text, voice, and video chats, making it a popular choice for gamers, communities, and teams looking to collaborate in real time."
+    },
+    {
+      "name": "Amazon Luna",
+      "img": "/imgs/apps/luna.png",
+      "url": "https://luna.amazon.com",
+      "description": "Amazon Luna is a cloud gaming service that streams a curated selection of games directly to your compatible devices, offering a subscription-based model for on-demand gaming without traditional consoles."
+    },
+    {
+      "name": "c.ai",
+      "img": "/imgs/apps/cai.png",
+      "url": "https://c.ai",
+      "description": "c.ai is an engaging conversational AI platform where users can interact with lifelike, intelligent characters, providing a unique and immersive chat experience powered by advanced machine learning."
+    },
+    {
+      "name": "Geforce Now",
+      "img": "/imgs/apps/geforce.png",
+      "url": "https://play.geforcenow.com",
+      "description": "Geforce Now is Nvidia’s cloud gaming service that allows users to stream and play high-performance games from remote servers, leveraging Nvidia’s powerful GPUs for smooth, lag-free gameplay."
+    },
+    {
+      "name": "ChatGPT",
+      "img": "/imgs/apps/chat.png",
+      "url": "https://chatgpt.com",
+      "description": "ChatGPT is an advanced AI conversational tool developed by OpenAI, capable of engaging in natural language discussions, answering queries, and assisting with creative and informational tasks."
+    },
+    {
+      "name": "Amazon",
+      "img": "/imgs/apps/amazon.png",
+      "url": "https://amazon.com",
+      "description": "Amazon is a global e-commerce giant known for its vast selection of products, fast shipping, and digital services, making it a one-stop destination for shopping, entertainment, and cloud computing."
+    },
+    {
+      "name": "Gmail",
+      "img": "/imgs/apps/gmail.png",
+      "url": "https://gmail.com",
+      "description": "Gmail is Google’s popular email service, celebrated for its powerful spam filtering, user-friendly interface, and seamless integration with a range of productivity tools and services."
+    },
+    {
+      "name": "Github",
+      "img": "/imgs/apps/github.png",
+      "url": "https://github.com",
+      "description": "Github is a web-based platform for version control and collaborative coding, enabling developers to host, share, and review code while managing projects and contributing to open-source software."
+    },
+    {
+      "name": "Gemini",
+      "img": "assets//img/apps/gem.png",
+      "url": "https://gemini.google.com",
+      "description": "Gemini is Google’s innovative platform that explores next-generation solutions in artificial intelligence and data processing, pushing the boundaries of machine learning technology."
+    },
+    {
+      "name": "Scratch",
+      "img": "/imgs/apps/scratch.png",
+      "url": "https://scratch.mit.edu",
+      "description": "Scratch is an educational programming platform developed by MIT, designed to introduce children and beginners to coding through interactive, block-based programming and creative projects."
+    },
+    {
+      "name": "X",
+      "img": "/imgs/apps/x.png",
+      "url": "https://x.com",
+      "description": "X, formerly known as Twitter, is a real-time social networking service where users share brief updates, news, and opinions, fostering lively discussions and global connectivity."
+    },
+    {
+      "name": "Twitch",
+      "img": "/imgs/apps/twitch.png",
+      "url": "https://twitch.tv",
+      "description": "Twitch is a premier live streaming platform where gamers and content creators broadcast gameplay and events, enabling viewers to interact in real time through chat and community features."
+    },
+    {
+      "name": "Youtube Music",
+      "img": "/imgs/apps/youtubem.png",
+      "url": "https://music.youtube.com",
+      "description": "Youtube Music is a dedicated streaming service that offers access to an extensive library of songs, music videos, and personalized playlists, catering to every musical taste."
+    },
+    {
+      "name": "Replit",
+      "img": "/imgs/apps/replit.png",
+      "url": "https://replit.com",
+      "description": "Replit is an online collaborative coding environment that allows users to write, run, and share code directly from their browsers, supporting a wide range of programming languages and fostering community learning."
+    },
+    {
+      "name": "Pintrest",
+      "img": "/imgs/apps/pintrest.png",
+      "url": "https://pinterest.com",
+      "description": "Pinterest is a visual discovery and bookmarking platform that enables users to explore, save, and share creative ideas and inspirations—from home decor and fashion to recipes and DIY projects."
+    },
+    {
+      "name": "Duck Duck Go",
+      "img": "/imgs/apps/ddg.png",
+      "url": "https://duckduckgo.com",
+      "description": "Duck Duck Go is a privacy-focused search engine that emphasizes user anonymity, delivering relevant search results without tracking personal data or browsing habits."
+    },
+    {
+      "name": "Bing",
+      "img": "/imgs/apps/bing.png",
+      "url": "https://bing.com",
+      "description": "Bing is Microsoft’s search engine, offering comprehensive web, image, video, and map search capabilities with a visually engaging interface and intelligent search features."
+    },
+    {
+      "name": "Yahoo Mail",
+      "img": "/imgs/apps/yahoo.png",
+      "url": "https://mail.yahoo.com",
+      "description": "Yahoo Mail is a robust email service providing users with a feature-rich interface, ample storage, and practical organizational tools, ensuring a reliable communication experience."
+    }
+  ]
+  

@@ -1,0 +1,479 @@
+[
+    {
+        "name": "Taiko Web",
+        "img": "/imgs/g/taiko.png",
+        "url": "https://cjdgrevival.com/",
+        "description": "A browser-based Taiko no Tatsujin rhythm game clone."
+    },
+    {
+        "name": "jstris",
+        "img": "/imgs/g/jstris.png",
+        "url": "https://jstris.jezevec10.com/",
+        "description": "An online multiplayer Tetris game with customizable settings."
+    },
+    {
+        "name": "osuweb",
+        "img": "/imgs/g/osu.png",
+        "url": "https://webosu.online/",
+        "description": "A web-based version of the popular rhythm game osu!."
+    },
+    {
+        "name": "pulsus",
+        "img": "/imgs/g/pulsus.png",
+        "url": "https://www.pulsus.cc/play/",
+        "description": "A fast-paced music-based game with unique mechanics."
+    },
+    {
+        "name": "html5b",
+        "img": "/imgs/g/html5b.png",
+        "url": "https://coppersalts.github.io/HTML5b/",
+        "description": "A collection of HTML5 browser games."
+    },
+    {
+        "name": "1v1.LOL",
+        "img": "/imgs/g/1v1.png",
+        "url": "https://1v1.lol",
+        "description": "An online third-person shooter with build mechanics."
+    },
+    {
+        "name": "Ai minecraft",
+        "img": "/imgs/g/minecraft.png",
+        "url": "https://oasis.decart.ai",
+        "description": "A browser-based AI-generated Minecraft experience."
+    },
+    {
+        "name": "Rodha",
+        "img": "/imgs/g/rodha.png",
+        "url": "https://games.crazygames.com/en_US/rodha/index.html?v=1.311",
+        "description": "A fun and challenging physics-based platformer."
+    },
+    {
+        "name": "Football Bros",
+        "img": "/imgs/g/footballbros.png",
+        "url": "https://footballbros.io/",
+        "description": "An arcade-style football game with multiplayer support."
+    },
+    {
+        "name": "Idle Dice",
+        "img": "/imgs/g/idledice.png",
+        "url": "https://luts91.github.io/idle-dices/",
+        "description": "An idle game where you roll dice to earn points and upgrades."
+    },
+    {
+        "name": "Idle Breakout",
+        "img": "/imgs/g/idlebreakout.png",
+        "url": "https://idle-breakout.neocities.org/",
+        "description": "A combination of breakout and idle clicker mechanics."
+    },
+    {
+        "name": "Crusher Clicker",
+        "img": "/imgs/g/crusher.png",
+        "url": "https://games.crazygames.com/en_US/crusher-clicker/index.html?v=1.311",
+        "description": "An idle clicker game focused on crushing objects for profit."
+    },
+    {
+        "name": "Slope 3",
+        "img": "/imgs/g/slope3.png",
+        "url": "https://tinyplay.io/game/slope-3-v2/",
+        "description": "A fast-paced endless runner set in a 3D world."
+    },
+    {
+        "name": "Doom 1",
+        "img": "/imgs/g/doom.png",
+        "url": "https://bestdosgames.com/games/doom/play",
+        "description": "The classic first-person shooter game, playable in the browser."
+    },
+    {
+        "name": "Doom 2",
+        "img": "/imgs/g/doom2.png",
+        "url": "https://bestdosgames.com/games/doom-ii/play",
+        "description": "The sequel to Doom, featuring new weapons and levels."
+    },
+    {
+        "name": "1 On 1 BasketBall",
+        "img": "/imgs/g/1on1.png",
+        "url": "https://basketball-stars.me/g/41",
+        "description": "A one-on-one arcade-style basketball game."
+    },
+    {
+        "name": "Space Wars",
+        "img": "/imgs/g/spacewars.png",
+        "url": "https://games.crazygames.com/en_US/space-wars-battleground/index.html?v=1.301",
+        "description": "A space combat game with intense battles."
+    },
+    {
+        "name": "1 On 1 Soccer",
+        "img": "/imgs/g/1o1football.png",
+        "url": "https://frivez.com/flashgame?load=1-on-1-soccer",
+        "description": "A simple yet competitive one-on-one soccer game."
+    },
+    {
+        "name": "Rainbow Tower",
+        "img": "/imgs/g/rainbowtower.png",
+        "url": "https://www.mathplayground.com/mobile_rainbow_tower/index.html",
+        "description": "A colorful physics-based stacking game."
+    },
+    {
+        "name": "Shell Shockers",
+        "img": "/imgs/g/shock.png",
+        "url": "https://shellshock.io/",
+        "description": "A multiplayer first-person shooter where you play as an egg."
+    },
+    {
+        "name": "BasketBros",
+        "img": "/imgs/g/basketbros.png",
+        "url": "https://basket-bros.github.io/a7/basket-bros",
+        "description": "A fast-paced, arcade-style basketball game."
+    },
+    {
+        "name": "Slope",
+        "img": "/imgs/g/slope.png",
+        "url": "https://slope.lol/games/slope/index.html",
+        "description": "An endless downhill running game with increasing speed."
+    },
+    {
+        "name": "Baldi's Basics",
+        "img": "/imgs/g/baldi.png",
+        "url": "https://mathisbes.global.ssl.fastly.net/baldis-basics/index.html",
+        "description": "A horror game parodying old educational software."
+    },
+    {
+        "name": "Vex 6",
+        "img": "/imgs/g/vex6.png",
+        "url": "https://mathisbes.global.ssl.fastly.net/vex6/index.html",
+        "description": "A challenging stickman platformer with deadly obstacles."
+    },
+    {
+        "name": "BasketBall Stars",
+        "img": "/imgs/g/basketball-stars.png",
+        "url": "https://basketball-stars.me/g/41",
+        "description": "A fast-paced, two-player basketball game with fun mechanics and cool dunks."
+    },
+    {
+        "name": "2048",
+        "img": "/imgs/g/2048.png",
+        "url": "https://play2048.co/",
+        "description": "A simple yet addictive number puzzle game where you merge tiles to reach 2048."
+    },
+    {
+        "name": "Awesome Tanks",
+        "img": "/imgs/g/atank.png",
+        "url": "https://mountain658.github.io/zawesometanks.html",
+        "description": "Battle against enemy tanks, upgrade your weapons, and destroy everything in sight."
+    },
+    {
+        "name": "Super Mario 64",
+        "img": "/imgs/g/sm64.png",
+        "url": "https://supermario64online.github.io/file/",
+        "description": "Play the classic Super Mario 64 game online and explore the world of Peach's Castle."
+    },
+    {
+        "name": "8 Ball Pool",
+        "img": "/imgs/g/8ball.png",
+        "url": "https://8ballpoolonline.github.io/file/",
+        "description": "A fun multiplayer pool game where you compete against players worldwide."
+    },
+    {
+        "name": "Elastic Man",
+        "img": "/imgs/g/eman.png",
+        "url": "https://d21u3ic0kp9e91.cloudfront.net/elasticman/0/index.html",
+        "description": "A fun, interactive game where you stretch and pull a rubbery face."
+    },
+    {
+        "name": "OvO",
+        "img": "/imgs/g/OvO.png",
+        "url": "https://ovoclassic.github.io/file/",
+        "description": "A challenging platformer with wall-jumping and obstacle-dodging mechanics."
+    },
+    {
+        "name": "OvO 2",
+        "img": "/imgs/g/OvO2.png",
+        "url": "https://dedragames.com/games/ovo2/0.2alpha/",
+        "description": "The sequel to OvO, featuring more levels and even trickier platforming challenges."
+    },
+    {
+        "name": "TimeShooter",
+        "img": "/imgs/g/shoot.png",
+        "url": "https://gnhustgames.github.io/timeshooter2/",
+        "description": "A first-person shooter where time moves only when you move."
+    },
+    {
+        "name": "Drift Boss",
+        "img": "/imgs/g/driftboss.png",
+        "url": "https://www.hoodamath.com/mobile/games/drift-boss/game.html?nocheckorient=1",
+        "description": "A simple one-button drifting game where timing is everything."
+    },
+    {
+        "name": "Vex 5",
+        "img": "/imgs/g/vex5.png",
+        "url": "https://html5.gamedistribution.com/f120262ab72743039fbce88c1f370df8/",
+        "description": "A fast-paced stickman platformer with dangerous traps and tricky levels."
+    },
+    {
+        "name": "Retrobowl",
+        "img": "/imgs/g/retrobowl.png",
+        "url": "https://mathisbes.global.ssl.fastly.net/retrobowl/index.html",
+        "description": "A nostalgic, retro-style football game with fun gameplay and team management."
+    },
+    {
+        "name": "Balloons Tower Defence",
+        "img": "/imgs/g/btd.png",
+        "url": "https://bloons-tower-defense.github.io/file/",
+        "description": "A popular tower defense game where you pop balloons using monkeys and upgrades."
+    },
+    {
+        "name": "Angry Birds",
+        "img": "/imgs/g/angrybirds.png",
+        "url": "https://smartcart1.github.io/s88/angry-birds/",
+        "description": "A classic physics-based game where you launch birds to destroy pig fortresses."
+    },
+    {
+        "name": "Stumble Guys",
+        "img": "/imgs/g/stumble.png",
+        "url": "https://www.stumbleguys.com/play",
+        "description": "A fun multiplayer party game similar to Fall Guys, with chaotic obstacle courses."
+    },
+    [
+        {
+            "name": "Portal",
+            "img": "/imgs/g/portal.png",
+            "url": "https://games.crazygames.com/en_US/portal-2d/index.html",
+            "description": "A 2D adaptation of the iconic puzzle game that challenges you to solve spatial puzzles with portals."
+        },
+        {
+            "name": "Subway Surfers",
+            "img": "/imgs/g/subwaysurfers.png",
+            "url": "https://szhong.4399.com/4399swf//upload_swf/ftp35/liuxinyu/20210324/jj01/index.html",
+            "description": "An endless runner where you dodge obstacles and collect coins in a vibrant urban setting."
+        },
+        {
+            "name": "CSGO clicker",
+            "img": "/imgs/g/csgo.png",
+            "url": "https://mtsl.dk/csgo/",
+            "description": "A clicker game infused with Counter-Strike themes, challenging you to simulate rapid-fire action."
+        },
+        {
+            "name": "Tag",
+            "img": "/imgs/g/tag.png",
+            "url": "https://abinbins.github.io/a3/tag",
+            "description": "An engaging game of tag featuring simple controls and addictive chase mechanics."
+        },
+        {
+            "name": "Temple Run",
+            "img": "/imgs/g/trun.png",
+            "url": "https://burgerbounty.github.io/s8/temple-run-2",
+            "description": "A high-adrenaline endless runner set in ancient temples, where dodging obstacles is key."
+        },
+        {
+            "name": "Jelly Truck",
+            "img": "/imgs/g/jellytruck.png",
+            "url": "https://webglmath.github.io/jelly-truck/",
+            "description": "A physics-based puzzle game where you control a bouncy, jelly-like truck through challenging courses."
+        },
+        {
+            "name": "Stickman Golf",
+            "img": "/imgs/g/stickmangolf.png",
+            "url": "https://www.silvergames.com/en/stickman-golf/gameframe",
+            "description": "An arcade-style golf game featuring stickman characters and quirky, challenging courses."
+        },
+        {
+            "name": "There is No Game",
+            "img": "/imgs/g/thereisnogame.png",
+            "url": "https://game258367.konggames.com/gamez/0025/8367/live/index.html",
+            "description": "A meta-adventure that humorously defies traditional game design with unexpected twists."
+        },
+        {
+            "name": "Helix Jump",
+            "img": "/imgs/g/helixjump.png",
+            "url": "https://html5.gamedistribution.com/630d7b91a96145949f86128ce8f1c4eb/?gd_sdk_referrer_url=https%3A%2F%2Fwww.gamedistribution.com%2Fgame%2F630d7b91a96145949f86128ce8f1c4eb",
+            "description": "A colorful arcade game where you guide a bouncing ball down a twisting helix maze."
+        },
+        {
+            "name": "Basket Random",
+            "img": "/imgs/g/basketrandom.png",
+            "url": "https://www.twoplayergames.org/embed/basket-random",
+            "description": "A quirky basketball game with unpredictable elements and fast-paced gameplay."
+        },
+        {
+            "name": "Pokemon Gold",
+            "img": "/imgs/g/pokemongold.png",
+            "url": "https://static.arcadespot.com/retroemulator.php?system=gbc&game=2016/07/pokemon-gold.zip",
+            "description": "A retro emulated version of the classic handheld adventure, Pokemon Gold."
+        },
+        {
+            "name": "The Impossible Quiz",
+            "img": "/imgs/g/impossiblequiz.png",
+            "url": "https://23azostore.github.io/s8/the-impossible-quiz",
+            "description": "A challenging and humorous quiz game filled with bizarre and trick questions."
+        },
+        {
+            "name": "Pokemon Crystal",
+            "img": "/imgs/g/pokemonecrystal.png",
+            "url": "https://static.arcadespot.com/retroemulator.php?system=gbc&game=2016/07/pokemon-gold.zip",
+            "description": "A nostalgic emulated experience of the classic Pokemon Crystal game for handheld consoles."
+        },
+        {
+            "name": "Adventure Capitalist",
+            "img": "/imgs/g/adventure.png",
+            "url": "https://than1089.github.io/adventure-capitalist/",
+            "description": "A popular idle clicker where you build a vast business empire through investments."
+        },
+        {
+            "name": "Backrooms",
+            "img": "/imgs/g/backrooms.png",
+            "url": "https://backroomsgame.io/game/backrooms/",
+            "description": "A horror-adventure game set in the eerie, maze-like backrooms of an abandoned building."
+        },
+        {
+            "name": "Funny Shooter",
+            "img": "/imgs/g/funnyshooter.png",
+            "url": "https://funnyshooter.github.io/file/",
+            "description": "A lighthearted shooter game featuring humorous graphics and unconventional weapons."
+        },
+        {
+            "name": "Bad time simulator",
+            "img": "/imgs/g/badtimesimulator.png",
+            "url": "https://jcw87.github.io/c2-sans-fight",
+            "description": "A tongue-in-cheek simulator where you navigate through hilariously challenging scenarios."
+        },
+        {
+            "name": "Bob The Robber 2",
+            "img": "/imgs/g/btr2.png",
+            "url": "https://html5.gamedistribution.com/34d6aae0257d4e4c8068cbdfc11a8758/",
+            "description": "The sequel to Bob The Robber, featuring stealth mechanics and daring heists."
+        },
+        {
+            "name": "Hole.io",
+            "img": "/imgs/g/holeio.png",
+            "url": "https://jmw-v5.pages.dev/english/src/hole-io/",
+            "description": "An addictive multiplayer game where you control a black hole that devours everything to grow larger."
+        },
+        {
+            "name": "Cookie Clicker",
+            "img": "/imgs/g/cookie1.jpeg",
+            "url": "https://orteil.dashnet.org/cookieclicker/",
+            "description": "The classic incremental game where you bake cookies to unlock upgrades and expand your empire."
+        },
+        {
+            "name": "Infinite Craft",
+            "img": "/imgs/g/icraft.png",
+            "url": "https://neal.fun/infinite-craft/",
+            "description": "A creative sandbox game offering endless building possibilities in a vast open world."
+        },
+        {
+            "name": "10 Minutes Till Dawn",
+            "img": "/imgs/g/10min.png",
+            "url": "https://games.crazygames.com/en_US/10-minutes-till-dawn/index.html?v=1.292",
+            "description": "A survival game where you fend off waves of enemies for 10 intense minutes until dawn."
+        },
+        {
+            "name": "Run 3",
+            "img": "/imgs/g/run3.png",
+            "url": "https://player03.com/run/3/beta/",
+            "description": "A fast-paced endless runner set in a space tunnel with increasingly challenging obstacles."
+        },
+        {
+            "name": "Krunker.io",
+            "img": "/imgs/g/krunkerio.png",
+            "url": "https://krunker.io/",
+            "description": "A competitive online first-person shooter featuring quick matches and retro, pixelated graphics."
+        },
+        {
+            "name": "Penalty Kick Online",
+            "img": "/imgs/g/pkick.png",
+            "url": "https://boxing2.github.io/b/penalty-kick-online/",
+            "description": "A soccer-themed game that simulates the tension of penalty kicks in a high-pressure setting."
+        },
+        {
+            "name": "Alien Hominid",
+            "img": "/imgs/g/alienhominid.png",
+            "url": "https://math-lessons.online/_games/alienhominid/",
+            "description": "A side-scrolling shooter starring a quirky alien battling through hordes of enemies."
+        },
+        {
+            "name": "Baloons TD",
+            "img": "/imgs/g/btd1.png",
+            "url": "https://bloons-tower-defense.github.io/file/",
+            "description": "A tower defense game where you strategically place towers to pop waves of invading balloons."
+        },
+        {
+            "name": "Bob The Robber",
+            "img": "/imgs/g/bobr.png",
+            "url": "https://html5.gamedistribution.com/18d28481ea514f3c838f9a5a355fb0f7/",
+            "description": "A stealth game where you plan heists and outsmart security systems as a clever burglar."
+        },
+        {
+            "name": "Cell Machine",
+            "img": "/imgs/g/cellmachine.png",
+            "url": "https://static.playunblocked.com/2020/11/cell-machine/",
+            "description": "A visually engaging puzzle game where you manipulate cells to create evolving patterns."
+        },
+        {
+            "name": "Crossy Road",
+            "img": "/imgs/g/crossyroad.png",
+            "url": "https://boxing2.github.io/b/crossy-road",
+            "description": "A charming endless arcade game where you help characters safely cross busy roads and rivers."
+        },
+        {
+            "name": "Cut the rope Holiday",
+            "img": "/imgs/g/ctrholiday.png",
+            "url": "https://sz-games.github.io/Games5/ctr-holiday",
+            "description": "A holiday-themed twist on the classic physics puzzle game, 'Cut the Rope', featuring festive challenges."
+        },
+        {
+            "name": "Papa's Cupcakearia",
+            "img": "/imgs/g/papascupcakearia.png",
+            "url": "https://www.gameslol.net/data/waflash/index.php?g=109",
+            "description": "A time-management game where you run a cupcake shop, baking and serving delicious treats."
+        },
+        {
+            "name": "Hobo 1",
+            "img": "/imgs/g/hobo1.png",
+            "url": "https://games.crazygames.com/en_US/hobo/index.html?v=1.301",
+            "description": "A quirky platformer starring a hobo navigating humorous urban challenges."
+        },
+        {
+            "name": "Hobo 2",
+            "img": "/imgs/g/hobo2.png",
+            "url": "https://games.crazygames.com/en_US/hobo-2/index.html?v=1.301",
+            "description": "The sequel to Hobo 1, offering more humorous scenarios and challenging levels."
+        },
+        {
+            "name": "Hobo 3",
+            "img": "/imgs/g/hobo3.png",
+            "url": "https://www.gameflare.com/embed/hobo-3-wanted/",
+            "description": "The third installment in the Hobo series, featuring new obstacles and quirky adventures."
+        },
+        {
+            "name": "Hobo 4",
+            "img": "/imgs/g/hobo4.png",
+            "url": "https://www.gameflare.com/embed/hobo-4/",
+            "description": "Another chapter in the Hobo series with fresh challenges and urban escapades."
+        },
+        {
+            "name": "Hobo 5",
+            "img": "/imgs/g/hobo5.png",
+            "url": "https://www.gameflare.com/embed/hobo-5-space-brawl/",
+            "description": "A unique blend of urban adventure and space brawling in the fifth Hobo game."
+        },
+        {
+            "name": "Hobo 6",
+            "img": "/imgs/g/hobo6.png",
+            "url": "https://games.crazygames.com/en_US/hobo-6/index.html?v=1.301",
+            "description": "A fast-paced continuation of the Hobo saga, filled with chaotic action and humor."
+        },
+        {
+            "name": "Hobo 7",
+            "img": "/imgs/g/hobo7.png",
+            "url": "https://games.crazygames.com/en_US/hobo-7/index.html?v=1.301",
+            "description": "The seventh game in the series, combining over-the-top challenges with quirky storytelling."
+        },
+        {
+            "name": "Roblox",
+            "img": "/imgs/g/roblox.png",
+            "url": "https://now.gg/apps/a/10020/b.html",
+            "description": "A vast online platform where you can play and create games across countless genres."
+        }
+    ]
+    
+]

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gamess</title>
+    <script src="/redacted/redacted.g.js"></script>
+    <script src="/q/redacted.conf.js" defer></script>
+    <script src="/q/redacted.with.js" defer></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial, sans-serif;
+        transition: 0.3s ease;
+      }
+
+/* DARK */
+:root {
+    --background-color: #121212;
+    --seperator-color: #1e1e1e;
+    --light-hover-bg: #222222;
+    --selected-color: #2f2e2e;
+    --newtab-text-color: #5f6368;
+    --light-color: #e5e5e5;
+    --light-bg: #1b1b1b;
+    --svg-shade: #a5a5a5;
+    --background-img: url("wallpapersden.com_black-4k-windows-11-original_5120x2880.jpg");
+  }
+  
+  /* LIGHT */
+  .light {
+    --background-color: #f0f0f0;
+    --seperator-color: #dcdcdc;
+    --light-hover-bg: #e0e0e0;
+    --selected-color: #c1c1c1;
+    --newtab-text-color: #3c4043;
+    --light-color: #333333;
+    --light-bg: #ffffff;
+    --svg-shade: #7f7f7f;
+    --background-img: url("4k-Windows-11-White-Abstract-Background-4K-Wallpaper.jpg");
+  }
+  
+  /* CRIMSON */
+  .crimson {
+    --background-color: #2c0a0a;
+    --seperator-color: #450d0d;
+    --light-hover-bg: #6a1414;
+    --selected-color: #8b1c1c;
+    --newtab-text-color: #e15c5c;
+    --light-color: #f2a5a5;
+    --light-bg: #511313;
+    --svg-shade: #d26161;
+    --background-img: url("4k-Windows-11-Abstract-Red-Bloom-4K-Wallpaper.jpg");
+  }
+  
+  /* DARK ORANGE */
+  .darkOrange {
+    --background-color: #2e1a08;
+    --seperator-color: #5c2c11;
+    --light-hover-bg: #8c3c1f;
+    --selected-color: #b65c32;
+    --newtab-text-color: #ff914d;
+    --light-color: #ffcc99;
+    --light-bg: #7c3e18;
+    --svg-shade: #ff6f3d;
+    --background-img: url("4k-Windows-11-Abstract-Orange-Bloom-4K-Wallpaper.jpg");
+  }
+  
+  /* DARK YELLOW */
+  .darkYellow {
+    --background-color: #3c2c00;
+    --seperator-color: #6e4e16;
+    --light-hover-bg: #b78c2e;
+    --selected-color: #d0a02e;
+    --newtab-text-color: #f2e15c;
+    --light-color: #fef7a1;
+    --light-bg: #7f6b2e;
+    --svg-shade: #e1c340;
+    --background-img: url("wallpapersden.com_minimal-artistic-desert-sunset_5760x3240.jpg");
+  }
+  
+  /* GREEN */
+      .green {
+        --background-color: #3e4b3e;
+        --seperator-color: #5a6d5a;
+        --light-hover-bg: #5f775f ;
+        --selected-color: #4e6e4e;
+        --newtab-text-color: #d6d6d6;
+        --light-color: #ffffff;
+        --light-bg: #4b5b4b;
+        --svg-shade: #8f9e8f;
+        --background-img: url("green_windows_11_logo_in_green_background_4k_hd_windows_11.jpg");
+      }
+  
+  /* BLUE */
+  .blue {
+    --background-color: #0a1f3b;
+    --seperator-color: #1f3e6d;
+    --light-hover-bg: #2e5797;
+    --selected-color: #4a7eb6;
+    --newtab-text-color: #7aa9d6;
+    --light-color: #a7c4e6;
+    --light-bg: #234d7f;
+    --svg-shade: #6c98c7;
+    --background-img: url("4k-Windows-11-Abstract-Blue-Background-4K-Desktop-Wallpaper.jpg");
+  }
+  
+  /* PURPLE */
+  .purple {
+    --background-color: #2c1a57;
+    --seperator-color: #3f2b6f;
+    --light-hover-bg: #4c3a7f;
+    --selected-color: #5c2f8b;
+    --newtab-text-color: #f1c6f0;
+    --light-color: #f7f1f9;
+    --light-bg: #452673;
+    --svg-shade: #8d6ba8;
+    --background-img: url("4k-Windows-11-365-Abstract-Purple-Background-Digital-Art-4K-Wallpaper.jpg");
+  }
+
+      body {
+        background-color: var(--light-bg);
+        color: var(--light-color);
+        overflow-x: hidden;
+      }
+
+      .grid-background {
+        background-color: var(--light-bg);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+
+      .grid-background svg {
+        width: 100%;
+        height: 100%;
+        transform: scale(1.01);
+        opacity: 0.35;
+        fill: var(--svg-shade);
+      }
+
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .modal-content {
+        background-color: var(--background-color);
+        border-radius: 12px;
+        padding: 20px;
+        min-height: calc(100vh - 100px);
+        max-height: calc(100vh - 100px);
+        min-width: calc(100vw - 100px);
+        max-width: calc(100vw - 100px);
+        position: relative;
+      }
+
+      .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        color: var(--light-color);
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .close-button:hover {
+        color: var(--svg-shade);
+      }
+
+      .search-container {
+        margin-bottom: 20px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .search-container input {
+        height: 48px;
+        flex: 1;
+      }
+
+      .input-search {
+        all: unset;
+        width: 100%;
+        padding: 5px;
+        padding-left: 40px;
+        box-sizing: border-box;
+        border-radius: 6px;
+        background: var(--light-bg);
+        color: var(--newtab-text-color);
+        border: none;
+      }
+
+      .category-dropdown {
+        position: relative;
+        width: 120px;
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 10px;
+        fill: var(--svg-shade);
+        z-index: 1;
+        opacity: 0.25;
+      }
+
+      .category-dropdown select {
+        all: unset;
+        width: 100%;
+        padding: 10px;
+        height: 100%;
+        align-items: center;
+        box-sizing: border-box;
+        border-radius: 6px;
+        background: var(--light-bg);
+        color: var(--newtab-text-color);
+        cursor: pointer;
+        appearance: none;
+        text-align: center;
+      }
+
+      .category-dropdown::after {
+        content: "▼";
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        color: var(--newtab-text-color);
+        pointer-events: none;
+      }
+
+      .modal-links {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        max-height: calc(100vh - 167px);
+        overflow-y: auto;
+        border-radius: 12px;
+        padding-right: 10px;
+      }
+
+      .modal-links::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+      }
+
+      .modal-links::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        border-radius: 10px;
+      }
+
+      .modal-links::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
+      @media (max-width: 1300px) {
+        .modal-links {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .modal-links {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .modal-links {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+
+      .app-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px;
+        background-color: var(--light-bg);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+
+      .app-content {
+        display: flex;
+        width: 100%;
+        gap: 10px;
+      }
+
+      .app-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 8px;
+        object-fit: cover;
+        aspect-ratio: 1 / 1;
+      }
+
+      .app-details {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .app-description {
+        font-size: 14px;
+        color: var(--newtab-text-color);
+        margin-top: 5px;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative;
+        padding-right: 60px;
+      }
+
+      .more-button {
+        background: none;
+        border: none;
+        color: var(--light-color);
+        cursor: pointer;
+        font-size: 14px;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+
+      .more-button:hover {
+        text-decoration: underline;
+      }
+
+      .app-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: var(--light-color);
+      }
+
+      .play-button {
+        width: 100%;
+        padding: 10px;
+        background-color: var(--light-hover-bg);
+        color: var(--light-color);
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        text-align: center;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+
+      .play-button:hover {
+        background-color: var(--selected-color);
+      }
+
+      .dynamic-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10001;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .dynamic-modal.active {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .dynamic-modal-content {
+        background-color: var(--background-color);
+        border-radius: 12px;
+        padding: 20px;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        position: relative;
+      }
+
+      .dynamic-modal-title {
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--light-color);
+        margin-bottom: 10px;
+      }
+
+      .dynamic-modal-description {
+        font-size: 16px;
+        color: var(--newtab-text-color);
+        margin-bottom: 20px;
+      }
+
+      .close-button svg {
+        fill: var(--svg-shade);
+      }
+
+      .close-button svg:hover {
+        fill: var(--light-color);
+      }
+
+      .search-box {
+        position: relative;
+        display: flex;
+        flex: 1;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="apps-modal" class="modal">
+      <div class="grid-background">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern
+              id="grid"
+              patternUnits="userSpaceOnUse"
+              width="20"
+              height="20"
+            >
+              <path
+                d="M 20 0 L 0 0 0 20 20 20"
+                fill="none"
+                stroke="black"
+                stroke-width="0.5"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" opacity="1" />
+        </svg>
+      </div>
+      <div class="modal-content">
+        <div class="search-container">
+          <div class="category-dropdown">
+            <select>
+              <option value="all">All</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+          <div class="search-box">
+            <svg
+              class="search-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#5f6368"
+            >
+              <path
+                d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"
+              />
+            </svg>
+            <input
+              type="text"
+              id="apps-search-input"
+              class="input-search"
+              placeholder="Search games..."
+              autofocus
+            />
+          </div>
+        </div>
+        <div class="modal-links">
+    </div>
+
+    <div id="dynamic-modal" class="dynamic-modal">
+      <div class="dynamic-modal-content">
+        <button class="close-button" onclick="closeDynamicModal()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#5f6368"
+          >
+            <path
+              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+            />
+          </svg>
+        </button>
+        <div class="dynamic-modal-title" id="dynamic-modal-title">
+          App Title
+        </div>
+        <div class="dynamic-modal-description" id="dynamic-modal-description">
+          App Description
+        </div>
+        <button class="play-button" id="play-button">
+          Play Now
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function closeModal() {
+        const modal = document.getElementById("apps-modal");
+        modal.classList.add("hidden");
+      }
+
+      function openDynamicModal(title, description, url) {
+        const modal = document.getElementById("dynamic-modal");
+        const modalTitle = document.getElementById("dynamic-modal-title");
+        const modalDescription = document.getElementById(
+          "dynamic-modal-description"
+        );
+        const modelBtn = document.getElementById("play-button");
+        console.log(url)
+
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+        modelBtn.setAttribute("onclick", `window.location.href = '${__uv$config.prefix + __uv$config.encodeUrl(url)}' `)
+        modal.classList.add("active");
+      }
+
+      function closeDynamicModal() {
+        const modal = document.getElementById("dynamic-modal");
+        modal.classList.remove("active");
+      }
+    </script>    <script>
+      window.addEventListener("message", function (event) {
+        const theme = event.data.theme;
+        console.log("themeememeemm")
+
+        if (theme) {
+          applyTheme(theme);
+        }
+      });
+
+      function applyTheme(theme) {
+        localStorage.setItem("selectedTheme", theme);
+        
+        const body = document.body;
+        
+        switch (theme) {
+          case "dark":
+            body.setAttribute("class", "dark")
+            break;
+          case "light":
+          body.setAttribute("class", "light")
+            break;
+          case "crimson":
+          body.setAttribute("class", "crimson")
+            break;
+          case "orange":
+          body.setAttribute("class", "darkOrange")
+            break;
+          case "yellow":
+          body.setAttribute("class", "darkYellow")
+            break;
+          case "green":
+          body.setAttribute("class", "green")
+            break;
+          case "blue":
+          body.setAttribute("class", "blue")
+            break;
+          case "purple":
+          body.setAttribute("class", "purple")
+            break;
+          default:
+            console.warn("whoever made this ");
+            break;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        applyTheme(savedTheme);
+      }
+      });
+    </script>
+  </body>
+</html>

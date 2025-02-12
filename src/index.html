@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sunset</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="/redacted/service-worker.js"></script>
+    <script src="/redacted/modal.js"></script>
+    <script src="/redacted/settings.js"></script>
+    <script src="/redacted/main.js"></script>
+    <script src="/redacted/redacted.bookmarks.js" defer></script>
+    <script src="/redacted/redacted.main.js"></script>
+    <script src="/q/redacted.conf.js" defer></script>
+    <script src="/q/redacted.with.js" defer></script>
+    <script src="/redacted/redacted.keybinds.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div class="sidebar-content">
+          <div class="top-wrapper">
+            <svg
+              id="collapse-sidebar"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+            >
+              <path
+                d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm240-80h400v-480H400v480Zm-80 0v-480H160v480h160Zm-160 0v-480 480Zm160 0h80-80Zm0-480h80-80Z"
+              />
+            </svg>
+            <div class="top-right">
+              <svg
+                onclick="backward()"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+              >
+                <path
+                  d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"
+                />
+              </svg>
+              <svg
+                onclick="forward()"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+              >
+                <path
+                  d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"
+                />
+              </svg>
+              <svg
+                onclick="refresh()"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+              >
+                <path
+                  d="M480-160q-134 0-227-93t-93-227q0-134 93-227t227-93q69 0 132 28.5T720-690v-110h80v280H520v-80h168q-32-56-87.5-88T480-720q-100 0-170 70t-70 170q0 100 70 170t170 70q77 0 139-44t87-116h84q-28 106-114 173t-196 67Z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="search">
+            <input class="input-search" type="text" placeholder="Search" />
+          </div>
+          <div class="favorites">
+            <div
+              class="favorite-add"
+              onclick="bookMark(document.querySelector('.iframe-frame').contentWindow.location.href)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="26px"
+                viewBox="0 -960 960 960"
+                width="26px"
+              >
+                <path
+                  d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="seperator"></div>
+          <div class="tabs">
+            <div class="tab-new" onclick="newTab();">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="26px"
+                viewBox="0 -960 960 960"
+                width="26px"
+              >
+                <path
+                  d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
+                />
+              </svg>
+              <p class="newtab-title">New Tab</p>
+            </div>
+            <div class="scrollable-container" id="tabContainer"></div>
+          </div>
+          <div class="seperator"></div>
+          <div class="bottom-wrapper">
+            <svg
+              id="home"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+            >
+              <path
+                d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"
+              />
+            </svg>
+            <svg
+              id="aa"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+            >
+              <path
+                d="M160-120v-200q0-33 23.5-56.5T240-400h480q33 0 56.5 23.5T800-320v200H160Zm200-320q-83 0-141.5-58.5T160-640q0-83 58.5-141.5T360-840h240q83 0 141.5 58.5T800-640q0 83-58.5 141.5T600-440H360ZM240-200h480v-120H240v120Zm120-320h240q50 0 85-35t35-85q0-50-35-85t-85-35H360q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0-80q17 0 28.5-11.5T400-640q0-17-11.5-28.5T360-680q-17 0-28.5 11.5T320-640q0 17 11.5 28.5T360-600Zm240 0q17 0 28.5-11.5T640-640q0-17-11.5-28.5T600-680q-17 0-28.5 11.5T560-640q0 17 11.5 28.5T600-600ZM480-200Zm0-440Z"
+              />
+            </svg>
+            <svg
+              id="settingsModelSVG"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+            >
+              <path
+                d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z"
+              />
+            </svg>
+            <div class="menu-container">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+              >
+                <path
+                  d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"
+                />
+              </svg>
+              <div class="menu hidden1" style="top: 1px; left: 1px">
+                <ul>
+                  <li>
+                    <a id="a"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="24px"
+                        viewBox="0 -960 960 960"
+                        width="24px"
+                        fill="#000000"
+                      >
+                        <path
+                          d="M240-160q-33 0-56.5-23.5T160-240q0-33 23.5-56.5T240-320q33 0 56.5 23.5T320-240q0 33-23.5 56.5T240-160Zm240 0q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm240 0q-33 0-56.5-23.5T640-240q0-33 23.5-56.5T720-320q33 0 56.5 23.5T800-240q0 33-23.5 56.5T720-160ZM240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400ZM240-640q-33 0-56.5-23.5T160-720q0-33 23.5-56.5T240-800q33 0 56.5 23.5T320-720q0 33-23.5 56.5T240-640Zm240 0q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Zm240 0q-33 0-56.5-23.5T640-720q0-33 23.5-56.5T720-800q33 0 56.5 23.5T800-720q0 33-23.5 56.5T720-640Z"
+                        /></svg
+                      >Apps</a
+                    >
+                  </li>
+                  <li>
+                    <a id="g"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="24px"
+                        viewBox="0 -960 960 960"
+                        width="24px"
+                        fill="#5f6368"
+                      >
+                        <path
+                          d="M182-200q-51 0-79-35.5T82-322l42-300q9-60 53.5-99T282-760h396q60 0 104.5 39t53.5 99l42 300q7 51-21 86.5T778-200q-21 0-39-7.5T706-230l-90-90H344l-90 90q-15 15-33 22.5t-39 7.5Zm16-86 114-114h336l114 114q2 2 16 6 11 0 17.5-6.5T800-304l-44-308q-4-29-26-48.5T678-680H282q-30 0-52 19.5T204-612l-44 308q-2 11 4.5 17.5T182-280q2 0 16-6Zm482-154q17 0 28.5-11.5T720-480q0-17-11.5-28.5T680-520q-17 0-28.5 11.5T640-480q0 17 11.5 28.5T680-440Zm-80-120q17 0 28.5-11.5T640-600q0-17-11.5-28.5T600-640q-17 0-28.5 11.5T560-600q0 17 11.5 28.5T600-560ZM310-440h60v-70h70v-60h-70v-70h-60v70h-70v60h70v70Zm170-40Z"
+                        /></svg
+                      >Games</a
+                    >
+                  </li>
+                  <li style="cursor: not-allowed;">
+                    <a id="tool"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="24px"
+                        viewBox="0 -960 960 960"
+                        width="24px"
+                        fill="#5f6368"
+                      >
+                        <path
+                          d="M714-162 537-339l84-84 177 177q17 17 17 42t-17 42q-17 17-42 17t-42-17Zm-552 0q-17-17-17-42t17-42l234-234-68-68q-11 11-28 11t-28-11l-23-23v90q0 14-12 19t-22-5L106-576q-10-10-5-22t19-12h90l-22-22q-12-12-12-28t12-28l114-114q20-20 43-29t47-9q20 0 37.5 6t34.5 18q8 5 8.5 14t-6.5 16l-76 76 22 22q11 11 11 28t-11 28l68 68 90-90q-4-11-6.5-23t-2.5-24q0-59 40.5-99.5T701-841q8 0 15 .5t14 2.5q9 3 11.5 12.5T737-809l-65 65q-6 6-6 14t6 14l44 44q6 6 14 6t14-6l65-65q7-7 16.5-5t12.5 12q2 7 2.5 14t.5 15q0 59-40.5 99.5T701-561q-12 0-24-2t-23-7L246-162q-17 17-42 17t-42-17Z"
+                        /></svg
+                      >Tools</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="iframe" id="iframe">
+        <div class="iframe-top-bar hidden">
+          <div id="iframe-svg-container"></div>
+          <div class="search">
+            <input
+              class="input-search"
+              id="input-search"
+              type="text"
+              placeholder="Enter a URL or Search"
+            />
+          </div>
+          <div id="iframe-bottom-svg-container"></div>
+        </div>
+      </div>
+    </div>
+    <div id="search-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="search-container">
+          <input
+            type="text"
+            id="modal-search-input"
+            class="input-search"
+            placeholder="Search..."
+            autofocus
+          />
+        </div>
+        <div class="modal-links">
+          <a href="#" class="modal-link">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+            >
+              <path
+                d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"
+              />
+            </svg>
+            <span>Home</span>
+          </a>
+          <a href="#" class="modal-link" id="apps-modal">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+            >
+              <path
+                d="M240-160q-33 0-56.5-23.5T160-240q0-33 23.5-56.5T240-320q33 0 56.5 23.5T320-240q0 33-23.5 56.5T240-160Zm240 0q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm240 0q-33 0-56.5-23.5T640-240q0-33 23.5-56.5T720-320q33 0 56.5 23.5T800-240q0 33-23.5 56.5T720-160ZM240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400ZM240-640q-33 0-56.5-23.5T160-720q0-33 23.5-56.5T240-800q33 0 56.5 23.5T320-720q0 33-23.5 56.5T240-640Zm240 0q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Zm240 0q-33 0-56.5-23.5T640-720q0-33 23.5-56.5T720-800q33 0 56.5 23.5T800-720q0 33-23.5 56.5T720-640Z"
+              />
+            </svg>
+            <span>Apps</span>
+          </a>
+          <a onclick="openG();" class="modal-link" id="games-modal">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+            >
+              <path
+                d="M182-200q-51 0-79-35.5T82-322l42-300q9-60 53.5-99T282-760h396q60 0 104.5 39t53.5 99l42 300q7 51-21 86.5T778-200q-21 0-39-7.5T706-230l-90-90H344l-90 90q-15 15-33 22.5t-39 7.5Zm16-86 114-114h336l114 114q2 2 16 6 11 0 17.5-6.5T800-304l-44-308q-4-29-26-48.5T678-680H282q-30 0-52 19.5T204-612l-44 308q-2 11 4.5 17.5T182-280q2 0 16-6Zm482-154q17 0 28.5-11.5T720-480q0-17-11.5-28.5T680-520q-17 0-28.5 11.5T640-480q0 17 11.5 28.5T680-440Zm-80-120q17 0 28.5-11.5T640-600q0-17-11.5-28.5T600-640q-17 0-28.5 11.5T560-600q0 17 11.5 28.5T600-560ZM310-440h60v-70h70v-60h-70v-70h-60v70h-70v60h70v70Zm170-40Z"
+              />
+            </svg>
+            <span>Games</span>
+          </a>
+          <a style="cursor: not-allowed;" href="#" class="modal-link" id="ai-modal">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+            >
+              <path
+                d="M160-120v-200q0-33 23.5-56.5T240-400h480q33 0 56.5 23.5T800-320v200H160Zm200-320q-83 0-141.5-58.5T160-640q0-83 58.5-141.5T360-840h240q83 0 141.5 58.5T800-640q0 83-58.5 141.5T600-440H360ZM240-200h480v-120H240v120Zm120-320h240q50 0 85-35t35-85q0-50-35-85t-85-35H360q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0-80q17 0 28.5-11.5T400-640q0-17-11.5-28.5T360-680q-17 0-28.5 11.5T320-640q0 17 11.5 28.5T360-600Zm240 0q17 0 28.5-11.5T640-640q0-17-11.5-28.5T600-680q-17 0-28.5 11.5T560-640q0 17 11.5 28.5T600-600ZM480-200Zm0-440Z"
+              />
+            </svg>
+            <span>AI</span>
+          </a>
+          <a style="cursor: not-allowed;" href="#" class="modal-link" id="tools-modal">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+            >
+              <path
+                d="M714-162 537-339l84-84 177 177q17 17 17 42t-17 42q-17 17-42 17t-42-17Zm-552 0q-17-17-17-42t17-42l234-234-68-68q-11 11-28 11t-28-11l-23-23v90q0 14-12 19t-22-5L106-576q-10-10-5-22t19-12h90l-22-22q-12-12-12-28t12-28l114-114q20-20 43-29t47-9q20 0 37.5 6t34.5 18q8 5 8.5 14t-6.5 16l-76 76 22 22q11 11 11 28t-11 28l68 68 90-90q-4-11-6.5-23t-2.5-24q0-59 40.5-99.5T701-841q8 0 15 .5t14 2.5q9 3 11.5 12.5T737-809l-65 65q-6 6-6 14t6 14l44 44q6 6 14 6t14-6l65-65q7-7 16.5-5t12.5 12q2 7 2.5 14t.5 15q0 59-40.5 99.5T701-561q-12 0-24-2t-23-7L246-162q-17 17-42 17t-42-17Z"
+              />
+            </svg>
+            <span>Tools</span>
+          </a>
+          <a href="#" class="modal-link">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+            >
+              <path
+                d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z"
+              />
+            </svg>
+            <span>Settings</span>
+          </a>
+          <a href="https://discord.gg/By73SDzkCQ" class="modal-link">
+            <svg
+              role="img"
+              height="24px"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#e8eaed"
+            >
+              <title>Discord</title>
+              <path
+                d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"
+              />
+            </svg>
+            <span>Discord</span>
+          </a>
+          <a href="#" class="modal-link">
+            <svg
+              role="img"
+              height="24px"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#e8eaed"
+            >
+              <title>GitHub</title>
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+              />
+            </svg>
+            <span>Github</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="tools-modal" class="modal hidden">
+      <div class="modal-content-setting">
+        <h2>Tools</h2>
+        <div class="tools-grid">
+          <div class="tool-item">
+            <div class="tool-title">Tool 1</div>
+            <div class="tool-image-container">
+              <img
+                src="tool1-preview.jpg"
+                alt="Tool 1 Preview"
+                class="tool-image"
+              />
+            </div>
+            <div class="tool-description">Description for Tool 1.</div>
+            <button class="launch-button">Launch</button>
+          </div>
+          <div class="tool-item">
+            <div class="tool-title">Tool 2</div>
+            <div class="tool-image-container">
+              <img
+                src="tool2-preview.jpg"
+                alt="Tool 2 Preview"
+                class="tool-image"
+              />
+            </div>
+            <div class="tool-description">Description for Tool 2.</div>
+            <button class="launch-button">Launch</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="settings-modal" class="modal hidden">
+      <div class="modal-content-setting">
+        <h2>Settings</h2>
+
+        <div class="settings-grid visible">
+          <div class="settings-brick" data-category="theme">
+            <div class="brick-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#5f6368"
+              >
+                <path
+                  d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 32.5-156t88-127Q256-817 330-848.5T488-880q80 0 151 27.5t124.5 76q53.5 48.5 85 115T880-518q0 115-70 176.5T640-280h-74q-9 0-12.5 5t-3.5 11q0 12 15 34.5t15 51.5q0 50-27.5 74T480-80Zm0-400Zm-220 40q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm120-160q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm200 0q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm120 160q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17ZM480-160q9 0 14.5-5t5.5-13q0-14-15-33t-15-57q0-42 29-67t71-25h70q66 0 113-38.5T800-518q0-121-92.5-201.5T488-800q-136 0-232 93t-96 227q0 133 93.5 226.5T480-160Z"
+                />
+              </svg>
+            </div>
+            <div class="brick-title">Themes</div>
+            <div class="brick-description">
+              Customize the appearance of the website to fit your needs.
+            </div>
+          </div>
+
+          <div class="settings-brick" data-category="layout">
+            <div class="brick-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#5f6368"
+              >
+                <path
+                  d="M120-520v-320h320v320H120Zm0 400v-320h320v320H120Zm400-400v-320h320v320H520Zm0 400v-320h320v320H520ZM200-600h160v-160H200v160Zm400 0h160v-160H600v160Zm0 400h160v-160H600v160Zm-400 0h160v-160H200v160Zm400-400Zm0 240Zm-240 0Zm0-240Z"
+                />
+              </svg>
+            </div>
+            <div class="brick-title">Layout</div>
+            <div class="brick-description">
+              Adjust the sidebar and how it closes.
+            </div>
+          </div>
+
+          <div class="settings-brick" data-category="shortcut">
+            <div class="brick-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#5f6368"
+              >
+                <path
+                  d="M240-160q-33 0-56.5-23.5T160-240q0-33 23.5-56.5T240-320q33 0 56.5 23.5T320-240q0 33-23.5 56.5T240-160Zm0-240q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm0-240q-33 0-56.5-23.5T160-720q0-33 23.5-56.5T240-800q33 0 56.5 23.5T320-720q0 33-23.5 56.5T240-640Zm240 0q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Zm240 0q-33 0-56.5-23.5T640-720q0-33 23.5-56.5T720-800q33 0 56.5 23.5T800-720q0 33-23.5 56.5T720-640ZM480-400q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm40 240v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q8 9 12.5 20t4.5 22q0 11-4 22.5T863-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z"
+                />
+              </svg>
+            </div>
+            <div class="brick-title">Shortcuts</div>
+            <div class="brick-description">Change the shortcuts.</div>
+          </div>
+        </div>
+
+        <div id="theme-panel" class="settings-panel hidden">
+          <div class="panel">
+            <h3>Select a Theme</h3>
+            <div class="theme-options">
+              <div class="theme-option" data-theme="dark">
+                <svg
+                  class="view-svg"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#5f6368"
+                >
+                  <path
+                    d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"
+                  />
+                </svg>
+                <div class="theme-preview dark"></div>
+                <span>Dark</span>
+              </div>
+              <div class="theme-option" data-theme="light">
+                <svg
+                  class="view-svg"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#5f6368"
+                >
+                  <path
+                    d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"
+                  />
+                </svg>
+                <div class="theme-preview light"></div>
+                <span>Light</span>
+              </div>
+              <div class="theme-option" data-theme="crimson">
+                <svg
+                  class="view-svg"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#5f6368"
+                >
+                  <path
+                    d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"
+                  />
+                </svg>
+                <div class="theme-preview crimson"></div>
+                <span>Crimson</span>
+              </div>
+              <div class="theme-option" data-theme="orange">
+                <svg
+                  class="view-svg"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#5f6368"
+                >
+                  <path
+                    d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"
+                  />
+                </svg>
+                <div class="theme-preview orange"></div>
+                <span>Orange</span>
+              </div>
+              <div class="theme-option" data-theme="yellow">
+                <svg
+                  class="view-svg"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#5f6368"
+                >
+                  <path
+                    d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"
+                  />
+                </svg>
+                <div class="theme-preview yellow"></div>
+                <span>Yellow</span>
+              </div>
+              <div class="theme-option" data-theme="green">
+                <svg
+                  class="view-svg"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#5f6368"
+                >
+                  <path
+                    d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"
+                  />
+                </svg>
+                <div class="theme-preview green"></div>
+                <span>Green</span>
+              </div>
+              <div class="theme-option" data-theme="blue">
+                <svg
+                  class="view-svg"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#5f6368"
+                >
+                  <path
+                    d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"
+                  />
+                </svg>
+                <div class="theme-preview blue"></div>
+                <span>Blue</span>
+              </div>
+              <div class="theme-option" data-theme="purple">
+                <svg
+                  class="view-svg"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#5f6368"
+                >
+                  <path
+                    d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"
+                  />
+                </svg>
+                <div class="theme-preview purple"></div>
+                <span>Purple</span>
+              </div>
+            </div>
+            <button id="back-to-settings" class="back-button">
+              Back to Settings
+            </button>
+          </div>
+        </div>
+
+        <div id="layout-panel" class="settings-panel hidden">
+          <div class="panel">
+            <h3>Layout Settings</h3>
+            <div class="layout-option">
+              <label class="switch">
+                <input type="checkbox" id="sidebar-stick-out" />
+                <span class="slider round"></span>
+              </label>
+              <span>Stick out sidebar icons when closed</span>
+            </div>
+            <button id="back-to-settings-layout" class="back-button">
+              Back to Settings
+            </button>
+          </div>
+        </div>
+
+        <div id="shortcut-panel" class="settings-panel hidden">
+          <div id="shortcut-list" class="shortcut-grid">
+            <div class="shortcut-item">
+              <span>alt + c</span>
+              <span>close / open sidebar</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + r</span>
+              <span>reload</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + n</span>
+              <span>new tab</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + f</span>
+              <span>go forward</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + b</span>
+              <span>go back</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + e</span>
+              <span>tab above current</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + q</span>
+              <span>tab below current</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + p</span>
+              <span>previous tab</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + s</span>
+              <span>settings modal</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + a</span>
+              <span>apps page</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + g</span>
+              <span>games page</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + t</span>
+              <span>tools modal</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + h</span>
+              <span>home page / new page</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + 1</span>
+              <span>go to tab 1</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + 2</span>
+              <span>go to tab 2</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + 3</span>
+              <span>go to tab 3</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + 4</span>
+              <span>go to tab 4</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + 5</span>
+              <span>go to tab 5</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + 6</span>
+              <span>go to tab 6</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + 7</span>
+              <span>go to tab 7</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + 8</span>
+              <span>go to tab 8</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + 9</span>
+              <span>go to tab 9</span>
+            </div>
+            <div class="shortcut-item">
+              <span>`</span>
+              <span>panic key</span>
+            </div>
+            <div class="shortcut-item">
+              <span>alt + k</span>
+              <span>search modal</span>
+            </div>
+          </div>
+        </div>
+        <div id="edit-shortcut-modal" class="short-modal hidden">
+          <div class="short-modal-content">
+            <span class="short-close-modal"
+              ><svg
+                class="shortsvg"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#5f6368"
+              >
+                <path
+                  d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+                /></svg
+            ></span>
+            <h2>Edit Shortcut</h2>
+            <form class="edit-shortcut-form">
+              <label for="short-label">Search Modal Shortcut:</label>
+              <input
+                type="text"
+                class="short-edit-input"
+                placeholder="Press 'Record Keys' to set shortcut"
+                readonly
+              />
+              <button class="short-edit-record">Record Keys</button>
+              <button class="short-edit-save">Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="screenshot-modal" class="modal hidden">
+      <div class="modal-content-theme">
+        <div class="screenshot-container">
+          <img
+            id="screenshot-1"
+            src=""
+            alt="Screenshot 1"
+            class="screenshot visible"
+          />
+          <img
+            id="screenshot-2"
+            src=""
+            alt="Screenshot 2"
+            class="screenshot hidden"
+          />
+        </div>
+        <div class="screenshot-controls">
+          <button id="prev-screenshot" class="screenshot-button">
+            &#10094;
+          </button>
+          <button id="next-screenshot" class="screenshot-button">
+            &#10095;
+          </button>
+        </div>
+        <button id="close-screenshot-modal" class="close-button">Close</button>
+      </div>
+    </div>
+    <a
+      href="https://discord.gg/By73SDzkCQ"
+      target="_blank"
+      class="discord-join"
+    >
+      <svg
+        width="30px"
+        height="30px"
+        viewBox="0 0 24 24"
+        fill="#FFFFFF"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18.59 5.88997C17.36 5.31997 16.05 4.89997 14.67 4.65997C14.5 4.95997 14.3 5.36997 14.17 5.69997C12.71 5.47997 11.26 5.47997 9.83001 5.69997C9.69001 5.36997 9.49001 4.95997 9.32001 4.65997C7.94001 4.89997 6.63001 5.31997 5.40001 5.88997C2.92001 9.62997 2.25001 13.28 2.58001 16.87C4.23001 18.1 5.82001 18.84 7.39001 19.33C7.78001 18.8 8.12001 18.23 8.42001 17.64C7.85001 17.43 7.31001 17.16 6.80001 16.85C6.94001 16.75 7.07001 16.64 7.20001 16.54C10.33 18 13.72 18 16.81 16.54C16.94 16.65 17.07 16.75 17.21 16.85C16.7 17.16 16.15 17.42 15.59 17.64C15.89 18.23 16.23 18.8 16.62 19.33C18.19 18.84 19.79 18.1 21.43 16.87C21.82 12.7 20.76 9.08997 18.61 5.88997H18.59ZM8.84001 14.67C7.90001 14.67 7.13001 13.8 7.13001 12.73C7.13001 11.66 7.88001 10.79 8.84001 10.79C9.80001 10.79 10.56 11.66 10.55 12.73C10.55 13.79 9.80001 14.67 8.84001 14.67ZM15.15 14.67C14.21 14.67 13.44 13.8 13.44 12.73C13.44 11.66 14.19 10.79 15.15 10.79C16.11 10.79 16.87 11.66 16.86 12.73C16.86 13.79 16.11 14.67 15.15 14.67Z"
+        />
+      </svg>
+    </a>
+  </body>
+</html>
