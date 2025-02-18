@@ -1,7 +1,7 @@
-[
+let keybinds = [
     {
         "key": "c",
-        "action": "openModel(settings)"
+        "action": `openModel('settings')`
     },
     {
         "key": "f",
@@ -69,11 +69,11 @@
     },
     {
         "key": "s",
-        "action": "openModal(settings)"
+        "action": "openModal('settings')"
     },
     {
         "key": "t",
-        "action": "openModal(tools)"
+        "action": "openModal('tools')"
     },
     {
         "key": "2",
@@ -93,6 +93,6 @@
     },
     {
         "key": "k",
-        "action": "openModal(search)"
+        "action": "openModal('search')"
     }
 ]
