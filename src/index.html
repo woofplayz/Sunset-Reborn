@@ -15,8 +15,8 @@
     <script src="/q/redacted.with.js" defer></script>
     <script src="/keybinds.js" defer></script>
     <script src="/redacted/redacted.keybinds.js" defer></script>
-  </head>
-  <body>
+  </head> 
+  <body> 
     <div class="container">
       <div class="sidebar">
         <div class="sidebar-content">
@@ -206,7 +206,7 @@
       </div>
       <div class="iframe" id="iframe">
         <div class="iframe-top-bar hidden">
-          <div id="iframe-svg-container"></div>
+          <div id="iframe-svg-container" class="iframe-svg-container"></div>
           <div class="search">
             <input
               class="input-search"
@@ -215,7 +215,7 @@
               placeholder="Enter a URL or Search"
             />
           </div>
-          <div id="iframe-bottom-svg-container"></div>
+          <div id="iframe-bottom-svg-container" class="iframe-bottom-svg-container"></div>
         </div>
       </div>
     </div>
@@ -348,7 +348,7 @@
         </div>
       </div>
     </div>
-    <div id="tools-modal" class="modal hidden">
+    <div id="tools-modal" class="tools-modal modal hidden">
       <div class="modal-content-setting">
         <h2>Tools</h2>
         <div class="tools-grid">
@@ -379,7 +379,7 @@
         </div>
       </div>
     </div>
-    <div id="settings-modal" class="modal hidden">
+    <div id="settings-modal" class="settings-modal modal hidden">
       <div class="modal-content-setting">
         <h2>Settings</h2>
 
@@ -443,7 +443,7 @@
           </div>
         </div>
 
-        <div id="theme-panel" class="settings-panel hidden">
+        <div id="theme-panel" class="theme-panel settings-panel hidden">
           <div class="panel">
             <h3>Select a Theme</h3>
             <div class="theme-options">
@@ -598,7 +598,7 @@
           </div>
         </div>
 
-        <div id="shortcut-panel" class="settings-panel hidden">
+        <div id="shortcut-panel" class="shortcut-panel settings-panel hidden">
           <div id="shortcut-list" class="shortcut-grid">
             <div class="shortcut-item">
               <span>alt + c</span>
@@ -698,7 +698,7 @@
             </div>
           </div>
         </div>
-        <div id="edit-shortcut-modal" class="short-modal hidden">
+        <div id="edit-shortcut-modal" class="edit-shortcut-modal short-modal hidden">
           <div class="short-modal-content">
             <span class="short-close-modal"
               ><svg
@@ -729,7 +729,7 @@
         </div>
       </div>
     </div>
-    <div id="screenshot-modal" class="modal hidden">
+    <div id="screenshot-modal" class="screenshot-modal modal hidden">
       <div class="modal-content-theme">
         <div class="screenshot-container">
           <img

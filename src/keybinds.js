@@ -1,8 +1,8 @@
 let keybinds = [
     {
         "key": "c",
-        "action": `openModel('settings')`
-    },
+        "action": `openModal("settings-modal")`
+    }, 
     {
         "key": "f",
         "action": "forward()"
@@ -69,7 +69,7 @@ let keybinds = [
     },
     {
         "key": "s",
-        "action": "openModal('settings')"
+        "action": `openModal("settings-modal")`
     },
     {
         "key": "t",

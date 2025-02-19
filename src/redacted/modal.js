@@ -1,6 +1,39 @@
+
+// why are the functions liike that
+// vro they dont go in the domcontentloaded
+function showPanel(panel) {
+  if (panel) {
+    panel.classList.remove("hidden");
+    panel.classList.add("visible");
+  }
+}
+
+function hidePanel(panel) {
+  if (panel) {
+    panel.classList.add("hidden");
+    panel.classList.remove("visible");
+  }
+}
+
+
+
+
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    closeAllModals();
+    modal.classList.add("visible");
+  } else {
+    console.error(`Modal with ID ${modalId} not found!`);
+  }
+}
+
+// dont mind the c
+
 //woof not cooking with ai be like
+//shrey just not cooking be like
 document.addEventListener("DOMContentLoaded", function () {
-  const modals = document.querySelectorAll(".modal"); 
+  const modals = document.querySelectorAll(".modal");
   const settingsSvg = document.querySelector(".bottom-wrapper svg:nth-child(3)");
   const settingsGrid = document.querySelector(".settings-grid");
   const settingsGrid2 = document.querySelector(".settings-grid.visible");
@@ -9,22 +42,33 @@ document.addEventListener("DOMContentLoaded", function () {
   const shortcutPanel = document.getElementById("shortcut-panel");
   const backButtons = document.querySelectorAll(".back-button");
   const searchInput = document.getElementById("modal-search-input");
-
   function closeAllModals() {
     modals.forEach((modal) => {
       modal.classList.remove("visible");
     });
   }
-
-  function openModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-      closeAllModals();
-      modal.classList.add("visible"); 
-    } else {
-      console.error(`Modal with ID ${modalId} not found!`);
+  document.addEventListener("keydown", function (event) {
+    if (event.altKey && event.key == 'c') {
+      event.preventDefault();
+      openModal("settings-modal");
+      showPanel(settingsGrid);
+      hidePanel(themePanel);
+      hidePanel(layoutPanel);
+      hidePanel(shortcutPanel);
     }
-  }
+  })
+  document.getElementById("")
+  document.addEventListener("keydown", function (event) {
+    if (event.altKey && event.key == 's') {
+      event.preventDefault();
+      openModal("settings-modal");
+      showPanel(settingsGrid);
+      hidePanel(themePanel);
+      hidePanel(layoutPanel);
+      hidePanel(shortcutPanel);
+    }
+  })
+
 
   settingsSvg.addEventListener("click", function () {
     openModal("settings-modal");
@@ -100,19 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Settings link not found!");
   }
 
-  function showPanel(panel) {
-    if (panel) {
-      panel.classList.remove("hidden");
-      panel.classList.add("visible");
-    }
-  }
 
-  function hidePanel(panel) {
-    if (panel) {
-      panel.classList.add("hidden");
-      panel.classList.remove("visible");
-    }
-  }
 
   window.addEventListener("message", function (event) {
     if (event.data === "openSearchModal") {
@@ -126,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll("[id^='open-']").forEach((element) => {
     element.addEventListener("click", function (e) {
       e.preventDefault();
-      const modalId = element.id.replace("open-", "") + "-modal"; 
+      const modalId = element.id.replace("open-", "") + "-modal";
       openModal(modalId);
     });
   });
@@ -134,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".modal-link[id]").forEach((element) => {
     element.addEventListener("click", function (e) {
       e.preventDefault();
-      const modalId = element.id; 
+      const modalId = element.id;
       openModal(modalId);
     });
   });
