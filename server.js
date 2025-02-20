@@ -1,3 +1,5 @@
+
+//meow meow mewo emwo meow meow meow meow meow
 import express from "express";
 import { server as wisp } from "@mercuryworkshop/wisp-js";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
@@ -17,6 +19,7 @@ const __dirname = path.dirname(__filename);
 const PORT = process.env.PORT || 5505;
 const numCPUs = os.cpus().length;
 
+//thats chatgpt 
 // Master process: fork a worker for each CPU
 if (cluster.isPrimary) {
   console.log(`Master ${process.pid} is running`);
@@ -78,10 +81,11 @@ if (cluster.isPrimary) {
     }
   });
 
+  //thats also chatgpt
   // API: AI endpoint (not implemented)
   app.get("/api/a/v1/", (req, res) => {
     // TODO: Implement AI request handling
-    res.status(501).send("Not implemented");
+    res.status(501).send("chatgpt hasnt made this yet"); //stop using chatgpt andthen maybe
   });
 
   const server = http.createServer();
@@ -96,6 +100,7 @@ if (cluster.isPrimary) {
     }
   });
 
+  //so what im seeing is you guys took my backend and then proceeded to run the entire thing through chatgpt
   // Handle upgrade requests (websocket or similar upgrades)
   server.on('upgrade', (req, socket, head) => {
     if (req.url && req.url.startsWith('/bare/')) {

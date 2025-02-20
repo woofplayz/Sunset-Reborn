@@ -665,32 +665,66 @@
 
 .theme-options {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
 }
 
 .theme-option {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   cursor: pointer;
-  padding: 10px;
+  padding: 15px;
   border-radius: 8px;
   background-color: var(--light-bg);
   transition: background-color 0.2s ease;
+  position: relative;
 }
 
 .theme-option:hover {
   background-color: var(--light-hover-bg);
 }
 
+.active-theme {
+  border: 2px solid var(--selected-color);
+}
+
+.active-pop {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: var(--background-color);
+  font-size: 12px;
+  font-weight: bold;
+}
+
 .theme-preview {
-  width: 60px;
-  height: 60px;
-  margin-top: 20px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: 2px solid var(--seperator-color);
+  flex-shrink: 0;
+}
+
+.theme-option-text {
+  flex: 1; 
+  min-width: 0; 
+}
+
+.theme-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+}
+
+.theme-description {
+  font-size: 12px;
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.4;
 }
 
 .theme-preview.dark {
@@ -1289,13 +1323,6 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
-}
-
-.theme-option svg {
-  fill: var(--light-color);
-  display: flex;
-  align-self: flex-end;
-  position: absolute;
 }
 
 .modal-content-theme {

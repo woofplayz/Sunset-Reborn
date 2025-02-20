@@ -10,35 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function applyTheme(theme) {
     localStorage.setItem("theme", theme)
-    switch (theme) {
-      case "dark":
-        document.body.setAttribute("class", "dark")
-        break;
-      case "light":
-      document.body.setAttribute("class", "light")
-        break;
-      case "crimson":
-        document.body.setAttribute("class", "crimson")
-        break;
-      case "orange":
-        document.body.setAttribute("class", "darkOrange")
-        break;
-      case "yellow":
-        document.body.setAttribute("class", "darkYellow")
-        break;
-      case "green":
-        document.body.setAttribute("class", "green")
-        break;
-      case "blue":
-        document.body.setAttribute("class", "blue")
-        break;
-      case "purple":
-        document.body.setAttribute("class", "purple")
-        break;
-      default:
-        console.warn("whoever made this sucks at there job ");
-        break;
-    }
+    document.body.setAttribute("class", theme)
+    
     let iframe = document.querySelector(".iframe-frame");
     let s = document.querySelectorAll(".frame_bt");
     if (iframe) {
@@ -46,6 +19,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     s.forEach((ss) =>{
       ss.contentWindow.postMessage({ theme: theme }, "*");
+    });
+
+    document.querySelectorAll(".theme-option").forEach(option => {
+      option.classList.remove("active-theme");
+
+      let pops = option.querySelector(".active-pop");
+      if (pops) pops.remove();
+
+      if (option.getAttribute("data-theme") === theme) {
+        option.classList.add("active-theme");
+        option.insertAdjacentHTML("beforeend", `<div class="active-pop">Active</div>`)
+      }
     });
   }
 
