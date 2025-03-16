@@ -1,13 +1,13 @@
 const CACHE_NAME = "image-cache-v1";
-const IMAGES_TO_CACHE = [
-  "imgs/wallpapers/dark.jpg",
-  "imgs/wallpapers/white.jpg",
-  "imgs/wallpapers/red.jpg",
-  "imgs/wallpapers/orange.jpg",
-  "imgs/wallpapers/yellow.jpg",
-  "imgs/wallpapers/green.jpg",
-  "imgs/wallpapers/blue.jpg",
-  "imgs/wallpapers/purple.jpg",
+const IMAGES_TO_CACHE = [ // the webp files were there, why weren't we using them?
+  "imgs/wallpapers/dark.webp",
+  "imgs/wallpapers/white.webp",
+  "imgs/wallpapers/red.webp",
+  "imgs/wallpapers/orange.webp",
+  "imgs/wallpapers/yellow.webp",
+  "imgs/wallpapers/green.webp",
+  "imgs/wallpapers/blue.webp",
+  "imgs/wallpapers/purple.webp",
 ];
 
 self.addEventListener("install", (event) => {

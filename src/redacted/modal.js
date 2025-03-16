@@ -1,22 +1,16 @@
-
-// why are the functions liike that
-// vro they dont go in the domcontentloaded
 function showPanel(panel) {
   if (panel) {
     panel.classList.remove("hidden");
     panel.classList.add("visible");
   }
 }
-
+ 
 function hidePanel(panel) {
   if (panel) {
     panel.classList.add("hidden");
     panel.classList.remove("visible");
   }
 }
-
-
-
 
 function openModal(modalId) {
   const modal = document.getElementById(modalId);
@@ -27,11 +21,6 @@ function openModal(modalId) {
     console.error(`Modal with ID ${modalId} not found!`);
   }
 }
-
-// dont mind the c
-
-//woof not cooking with ai be like
-//shrey just not cooking be like
 document.addEventListener("DOMContentLoaded", function () {
   const modals = document.querySelectorAll(".modal");
   const settingsSvg = document.querySelector(".bottom-wrapper svg:nth-child(3)");
@@ -40,42 +29,46 @@ document.addEventListener("DOMContentLoaded", function () {
   const themePanel = document.getElementById("theme-panel");
   const layoutPanel = document.getElementById("layout-panel");
   const shortcutPanel = document.getElementById("shortcut-panel");
+  const cloakingPanel = document.getElementById("cloaking-panel");
+  const browserPanel = document.getElementById("browser-panel");
+  const accountPanel = document.getElementById("account-panel");
+  const advertismentsPanel = document.getElementById("advertisments-panel");
+  const statisticsPanel = document.getElementById("statistics-panel");
+  const upcomingPanel = document.getElementById("upcoming-panel");
   const backButtons = document.querySelectorAll(".back-button");
   const searchInput = document.getElementById("modal-search-input");
+  const allHotKeys = document.querySelectorAll('shortcut-item');
+
   function closeAllModals() {
     modals.forEach((modal) => {
       modal.classList.remove("visible");
     });
   }
-  document.addEventListener("keydown", function (event) {
-    if (event.altKey && event.key == 'c') {
-      event.preventDefault();
-      openModal("settings-modal");
-      showPanel(settingsGrid);
-      hidePanel(themePanel);
-      hidePanel(layoutPanel);
-      hidePanel(shortcutPanel);
-    }
-  })
-  document.getElementById("")
-  document.addEventListener("keydown", function (event) {
-    if (event.altKey && event.key == 's') {
-      event.preventDefault();
-      openModal("settings-modal");
-      showPanel(settingsGrid);
-      hidePanel(themePanel);
-      hidePanel(layoutPanel);
-      hidePanel(shortcutPanel);
-    }
-  })
 
-
-  settingsSvg.addEventListener("click", function () {
-    openModal("settings-modal");
+  function opensettingsclosepanels(){ 
     showPanel(settingsGrid);
     hidePanel(themePanel);
     hidePanel(layoutPanel);
     hidePanel(shortcutPanel);
+    hidePanel(cloakingPanel);
+    hidePanel(browserPanel);
+    hidePanel(accountPanel);
+    hidePanel(advertismentsPanel);
+    hidePanel(statisticsPanel);
+    hidePanel(upcomingPanel);
+  };
+
+  document.addEventListener("keydown", function (event) {
+    if (event.altKey && event.key == 's') {
+      event.preventDefault();
+      openModal("settings-modal");
+      opensettingsclosepanels();
+    }
+  })
+
+  settingsSvg.addEventListener("click", function () {
+    openModal("settings-modal");
+    opensettingsclosepanels();
   });
 
   modals.forEach((modal) => {
@@ -86,30 +79,40 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  const settingsBricks = document.querySelectorAll(".settings-brick");
-  settingsBricks.forEach((brick) => {
-    brick.addEventListener("click", function () {
-      const category = brick.getAttribute("data-category");
+  function openKeyModal(activastion) {
+    let mm = document.getElementById('edit-shortcut-modal');
+  if (mm) {
+    closeAllModals();
+    mm.classList.add("visible");
+    let mewo = document.querySelector('.shortcut-item-pre')
+    mewo.children[0].innerText = activastion
+  } else {
+    console.error(`Modal with ID ${activastion} not found!`);
+  }
+  }
+
+  allHotKeys.forEach(hotkey => {
+    hotkey.onclick = "openModal('edit-shortcut-modal')"
+  });
+
+  const settingsmodalthings = document.querySelectorAll(".settings-modalthing");
+  settingsmodalthings.forEach((modalthing) => {
+    modalthing.addEventListener("click", function () {
+      const category = modalthing.getAttribute("data-category");
 
       hidePanel(settingsGrid2);
-
-      if (category === "theme") {
-        showPanel(themePanel);
-      } else if (category === "layout") {
-        showPanel(layoutPanel);
-      } else if (category === "shortcut") {
-        showPanel(shortcutPanel);
-      }
+      let panel = document.getElementById(category+"-panel");
+      if (!panel) {
+        console.error(`Panel not found: ${panel}`);
+        return;
+    }
+    showPanel(panel);  
     });
   });
 
-  backButtons.forEach((button) => {
+  backButtons.forEach((button) => { 
     button.addEventListener("click", function () {
-      showPanel(settingsGrid);
-
-      hidePanel(themePanel);
-      hidePanel(layoutPanel);
-      hidePanel(shortcutPanel);
+      opensettingsclosepanels();
     });
   });
 
@@ -135,10 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
     settingsLink.addEventListener("click", function (e) {
       e.preventDefault();
       openModal("settings-modal");
-      showPanel(settingsGrid);
-      hidePanel(themePanel);
-      hidePanel(layoutPanel);
-      hidePanel(shortcutPanel);
+      opensettingsclosepanels();
     });
   } else {
     console.error("Settings link not found!");

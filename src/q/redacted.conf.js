@@ -8,7 +8,7 @@ const meow = {
             const char = str[i]
             result += i % 2 ? String.fromCharCode(char.charCodeAt(0) ^ 2) : char
         }
-        var endresult = result.replace('hvtrs8/-', 'https%3A%2F%2F')
+        var endresult = result.replace('hvtrs8%', 'https%3A%2F%2F')
 
         return encodeURIComponent(endresult)
     },
@@ -21,14 +21,14 @@ const meow = {
             const char = str[i]
             result += i % 2 ? String.fromCharCode(char.charCodeAt(0) ^ 2) : char
         }
-        var endresult = result.replace(`hvtrs'3C%0F'2D`, 'https://')
+        var endresult = result.replace(`hvtrs'3C%0F'2D`, 'htps://')
         return endresult
     },
 }
 
 
 self.__uv$config = {
-    prefix: '/q/rockets/',
+    prefix: '/q/rockts/',
     bare: '/bare/',
     encodeUrl: meow.encode,
     decodeUrl: meow.decode,
@@ -36,6 +36,6 @@ self.__uv$config = {
     client: '/q/redacted.clients.js',
     bundle: '/q/redacted.with.js',
     config: '/q/redacted.conf.js',
-    sw: '/q/redacted.sw.js',
+    sw: '/q/redcted.sw.js'
 };
 

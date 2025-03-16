@@ -128,37 +128,7 @@ function loadBookmarks() {
       function applyTheme(theme) {
         localStorage.setItem("selectedTheme", theme);
         
-        const body = document.body;
-        
-        switch (theme) {
-          case "dark":
-            body.setAttribute("class", "dark")
-            break;
-          case "light":
-          body.setAttribute("class", "light")
-            break;
-          case "crimson":
-          body.setAttribute("class", "crimson")
-            break;
-          case "orange":
-          body.setAttribute("class", "darkOrange")
-            break;
-          case "yellow":
-          body.setAttribute("class", "darkYellow")
-            break;
-          case "green":
-          body.setAttribute("class", "green")
-            break;
-          case "blue":
-          body.setAttribute("class", "blue")
-            break;
-          case "purple":
-          body.setAttribute("class", "purple")
-            break;
-          default:
-            console.warn("whoever made this ");
-            break;
-        }
+        document.body.setAttribute("class", theme)
       }
 
       document.addEventListener("DOMContentLoaded", (event) => {

@@ -301,28 +301,28 @@
       stroke-width: 0.5;
     }
     #loading-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: var(--light-color);
-  font-size: 24px;
-  z-index: 1000; 
-}
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--light-color);
+      font-size: 24px;
+      z-index: 1000;
+    }
 
-#loading-overlay p {
-  margin: 0;
-  padding: 20px;
-  background-color: var(--background-color);
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
+    #loading-overlay p {
+      margin: 0;
+      padding: 20px;
+      background-color: var(--background-color);
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
   </style>
   <body>
     <div id="ai-chat-page" class="ai-chat-page">
@@ -402,7 +402,7 @@
             </div>
           </div>
           <div class="user-message">
-            <p>Hi, I need help with something.</p>
+            <p>Hi, Im Gay.</p>
           </div>
         </div>
         <div class="chat-input-container">
@@ -426,7 +426,7 @@
       </div>
     </div>
     <div id="loading-overlay">
-      <p>Sorry haven't finished this page yet <br>Coming soon tho!</p>
+      <p>Sorry haven't finished this page yet <br />Coming soon tho!</p>
     </div>
     <script>
       window.addEventListener("message", function (event) {
@@ -442,36 +442,7 @@
         localStorage.setItem("selectedTheme", theme);
 
         const body = document.body;
-
-        switch (theme) {
-          case "dark":
-            body.setAttribute("class", "dark");
-            break;
-          case "light":
-            body.setAttribute("class", "light");
-            break;
-          case "crimson":
-            body.setAttribute("class", "crimson");
-            break;
-          case "orange":
-            body.setAttribute("class", "darkOrange");
-            break;
-          case "yellow":
-            body.setAttribute("class", "darkYellow");
-            break;
-          case "green":
-            body.setAttribute("class", "green");
-            break;
-          case "blue":
-            body.setAttribute("class", "blue");
-            break;
-          case "purple":
-            body.setAttribute("class", "purple");
-            break;
-          default:
-            console.warn("whoever made this ");
-            break;
-        }
+        body.setAttribute("class", theme);
       }
 
       document.addEventListener("DOMContentLoaded", (event) => {

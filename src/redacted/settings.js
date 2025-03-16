@@ -61,6 +61,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  const allShortCuts = document.querySelectorAll("shortcut-item")
+
+  allShortCuts.forEach(shortcut => {
+
+    shortcut.addEventListener("click", {
+      openShortCutModal(shortcut.getAttribute("data-shortcut"))
+    })
+  });
+
+  function openShortCutModal(shortcut) {
+    const ShortCutModal = document.getElementById("edit-shortcut-modal");
+    if (ShortCutModal) {
+      closeAllModals();
+      ShortCutModal.classList.add("visible");
+    } else {
+      console.error(`nobodycares is fucking stupid :3`);
+    }
+  }
+  
   const savedSidebarStickOut =
     localStorage.getItem("sidebarStickOut") === "true";
   applySidebarStickOut(savedSidebarStickOut);

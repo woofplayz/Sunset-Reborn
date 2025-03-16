@@ -6,11 +6,43 @@ let bb;
 let currentFrame;
 let activeTab;
 
+function aboutblank() {
+  let currentUrl = top.location.href
+  if (currentUrl === 'about:blank') {
+  } else {
+      let url = location.href;
+      let win = window.open()
+
+      if (!win) {
+          alert('Please allow popups and redirects in settings!')
+          return
+      }
+      try {
+          let iframe = win.document.createElement('iframe')
+          iframe.style.position = 'fixed'
+          iframe.style.top = 0
+          iframe.style.bottom = 0
+          iframe.style.left = 0
+          iframe.style.right = 0
+          iframe.style.border = 'none'
+          iframe.style.outline = 'none'
+          iframe.style.width = '100%'
+          iframe.style.height = '100%'
+          iframe.src = url
+          win.document.body.appendChild(iframe)
+      } catch (error) {
+          console.error('[Redacted.error] Failed to open about blank! ', error)
+      }
+
+      top.location.replace('https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2025') //lmao | Students gotta get prepared for taxes somehow
+  }
+}
+
 function switchTo(url) {
   try {
     document.querySelector(".iframe-frame").contentWindow.location.href = url;
   } catch (e) {
-    console.log("[Redacted.Error] Error Switching frame src" + e);
+    console.error("[Redacted.Error] Error Switching frame src" + e);
     alert("[Redacted.Error] Error Switching frame src" + e);
   }
 }
@@ -26,7 +58,7 @@ function newTab() {
     ti.classList.remove("-selected");
     x.setAttribute("class", "frame_bt");
   } catch (e) {
-    console.log("[Redacted.error] " + e);
+    console.error("[Redacted.error] " + e);
   }
 
   const nn = {
@@ -38,7 +70,7 @@ function newTab() {
     m: document.createElement("iframe"),
   };
   let tt = nn.b;
-  const sv = `<div class="tab-x" onclick="rmTab(${nn.i})"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></div>`;
+  const sv = `<div class="tab-x" onclick="rmTab(${nn.i})"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-424 284-228q-11 11-28 11t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11 28-11t28 11l196 196 196-196q11-11 28-11t28 11q11 11 11 28t-11 28L536-480l196 196q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-424Z"/></svg></div>`;
 
   //tab type shit
   tt.classList.add("tab", "-selected");
@@ -161,7 +193,7 @@ function zz() {
       }
     }
   } catch (e) {
-    console.log("[Redacted.error] Failed setting URL! " + e);
+    console.error("[Redacted.error] Failed setting URL! " + e);
   }
 }
 const lls = `function onclick(event) {`;
@@ -224,22 +256,38 @@ async function launch(url) {
     __uv$config.prefix + __uv$config.encodeUrl(url);
 }
 
-setInterval(function () {
-  zz();
-  fg();
-  //alert("join the discord server! https://discord.gg/By73SDzkCQ")
-}, 1000);
+
 
 function tool() {
   openModal("tools-modal");
 }
 
-//that one thing that lets us search
+function blank() {
+  if(localStorage.getItem("autoblank") === null) {
+  localStorage.setItem("autoblank", "true")
+  }else {
+    localStorage.removeItem("autoblank")
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  const autoblank = localStorage.getItem("autoblank");
+    if(autoblank === "true") {
+      aboutblank();
+      document.getElementById("auto-launch-toggle").checked = "true";
+  }
+  document.getElementById("auto-launch-toggle").addEventListener("click", blank)
+  document.getElementById("launch-about-blank").addEventListener("click", aboutblank)
   const input = document.querySelector(".input-search");
   const asda = document.getElementById("input-search");
   input.addEventListener("keydown", handleInput);
   asda.addEventListener("keydown", handleInput);
+
+  setInterval(function () {
+    zz();
+    fg();
+    fbing();
+  }, 1000);
 
   function handleInput(e) {
     if (e.key !== "Enter") return;
@@ -273,7 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function formatSearch(query) {
     const engine = localStorage.getItem("engine");
     if (engine === null) {
-      localStorage.setItem("engine", "https://google.com/search?q=");
+      localStorage.setItem("engine", "https://search.brave.com/search?q=");
     }
 
     try {
@@ -291,5 +339,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //error type shit
 window.onerror = function (error) {
-  console.log("[Redacted.error] " + error);
+  console.error("[Redacted.error] " + error);
 };
