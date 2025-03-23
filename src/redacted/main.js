@@ -92,6 +92,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  let theme = localStorage.getItem("theme");
+  if (theme) {
+    document.body.classList.add(theme);
+  }
+
   function setSelection(id, value) {
     let element = document.getElementById(id);
     element.value = value;

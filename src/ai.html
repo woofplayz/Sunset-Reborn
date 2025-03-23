@@ -345,8 +345,11 @@
       <div class="ai-chat-container">
         <h2>AI Chat</h2>
         <div class="chat-messages">
+          <div class="user-message">
+            <p>Hi, Im Gay.</p>
+          </div>
           <div class="ai-response">
-            <img src="/imgs/a.webp" alt="AI" class="ai-image" />
+            <img src="https://images-ext-1.discordapp.net/external/4dfxZDyZbqR3tom9r-8t10kMSWk1IKD8iiHUxda40a4/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1291397401411715181/7ad83ceed0805f3e9246a6e31a7984b9.png" alt="AI" class="ai-image" />
             <div>
               <p>Hello! How can I assist you today?</p>
               <div class="ai-response-actions">
@@ -401,9 +404,6 @@
               </div>
             </div>
           </div>
-          <div class="user-message">
-            <p>Hi, Im Gay.</p>
-          </div>
         </div>
         <div class="chat-input-container">
           <label for="upload-file" class="upload-button">
@@ -419,14 +419,11 @@
             id="ai-chat-input"
             class="input-search"
             placeholder="Type your message..."
-            readonly
           />
-          <button id="send-message" class="send-button">Send</button>
+          <button id="send-message" class="send-button" onClick="reqia()">Send</button>
         </div>
       </div>
     </div>
-    <div id="loading-overlay">
-      <p>Sorry haven't finished this page yet <br />Coming soon tho!</p>
     </div>
     <script>
       window.addEventListener("message", function (event) {
@@ -451,6 +448,118 @@
           applyTheme(savedTheme);
         }
       });
+
+      document.querySelector("#ai-chat-input").addEventListener("keydown", handleI);
+
+      function handleI(e) {
+        if (e.key !== "Enter") return;
+        reqia();
+      }
+
+      async function reqia() {
+        var input = document.querySelector("#ai-chat-input");
+        var chatbox = document.querySelector(".chat-messages");
+        var sendButton = document.querySelector("#send-message");
+        var stopButton = document.createElement("button");
+
+        let timeoutId;
+        let isStopped = false;
+
+        stopButton.id = "stop-loading";
+        stopButton.className = "send-button";
+        stopButton.innerText = "Stop";
+
+        try {
+          let userInput = input.value;
+          input.value = "";
+          input.disabled = true;
+          sendButton.replaceWith(stopButton);
+
+          const sendDiv = document.createElement("div");
+          const sendReq = document.createElement("p");
+          sendDiv.classList.add("user-message");
+          sendReq.innerText = userInput;
+
+          sendDiv.appendChild(sendReq);
+          chatbox.appendChild(sendDiv);
+
+          const throbberDiv = document.createElement("div");
+          throbberDiv.classList.add("ai-response");
+          throbberDiv.innerHTML = 
+          throbberDiv.innerHTML = `
+            <img src="https://images-ext-1.discordapp.net/external/4dfxZDyZbqR3tom9r-8t10kMSWk1IKD8iiHUxda40a4/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1291397401411715181/7ad83ceed0805f3e9246a6e31a7984b9.png" alt="AI" class="ai-image">
+            <div>
+              <p>Request has been sent, please wait for a response from the server...</p>
+          </div>`;
+          chatbox.appendChild(throbberDiv);
+
+          const options = {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "User-Agent": "insomnia/10.3.1" },
+            body: `{"message":"${userInput}"}`,
+          };
+
+          timeoutId = setTimeout(() => {
+            if (!isStopped) {
+              throbberDiv.innerHTML = `<p>Request timed out. Please try again.</p>`;
+              input.disabled = false;
+              stopButton.replaceWith(sendButton);
+            }
+          }, 90000);
+
+          stopButton.onclick = () => {
+            isStopped = true;
+            clearTimeout(timeoutId);
+            throbberDiv.innerHTML = `<p>Request stopped by user.</p>`;
+            input.disabled = false;
+            stopButton.replaceWith(sendButton);
+          };
+
+          let result = await fetch("/v1/completions/", options)
+            .then((response) => response.text())
+            .then((text) => JSON.parse(text));
+
+          if (isStopped) return;
+
+          clearTimeout(timeoutId);
+          input.disabled = false;
+          stopButton.replaceWith(sendButton);
+
+          var newlined = result.replace("\n", "<br>");
+          throbberDiv.innerHTML = `
+            <img src="https://images-ext-1.discordapp.net/external/4dfxZDyZbqR3tom9r-8t10kMSWk1IKD8iiHUxda40a4/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1291397401411715181/7ad83ceed0805f3e9246a6e31a7984b9.png" alt="AI" class="ai-image">
+            <div>
+              <p>${newlined}</p>
+              <div class="ai-response-actions">
+                <button title="Copy">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"></path>
+                  </svg>
+                </button>
+                <button title="Regenerate">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"></path>
+                  </svg>
+                </button>
+                <button title="Good Response">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"></path>
+                </svg>
+              </button>
+              <button title="Bad Response">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.58-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>`;
+        } catch (e) {
+          console.error("[Redacted.error Failed to fetch ai]");
+          throbberDiv.innerHTML = `<p>Error occurred. Please try again.</p>`;
+          input.disabled = false;
+          stopButton.replaceWith(sendButton);
+        }
+      }
     </script>
   </body>
 </html>

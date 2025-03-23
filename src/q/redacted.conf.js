@@ -21,14 +21,14 @@ const meow = {
             const char = str[i]
             result += i % 2 ? String.fromCharCode(char.charCodeAt(0) ^ 2) : char
         }
-        var endresult = result.replace(`hvtrs'3C%0F'2D`, 'htps://')
+        var endresult = result.replace(`hvtrs'3C%0F'2D`, 'https://')
         return endresult
     },
 }
 
 
 self.__uv$config = {
-    prefix: '/q/rockts/',
+    prefix: '/q/rockets/',
     bare: '/bare/',
     encodeUrl: meow.encode,
     decodeUrl: meow.decode,
@@ -36,6 +36,6 @@ self.__uv$config = {
     client: '/q/redacted.clients.js',
     bundle: '/q/redacted.with.js',
     config: '/q/redacted.conf.js',
-    sw: '/q/redcted.sw.js'
+    sw: '/q/redacted.sw.js'
 };
 

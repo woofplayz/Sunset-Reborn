@@ -65,9 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   allShortCuts.forEach(shortcut => {
 
-    shortcut.addEventListener("click", {
-      openShortCutModal(shortcut.getAttribute("data-shortcut"))
-    })
   });
 
   function openShortCutModal(shortcut) {
