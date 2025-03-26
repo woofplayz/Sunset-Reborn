@@ -25,11 +25,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     bbg.classList.add("more-button");
     bbc.classList.add("play-button");
     //adding urls to the modal
-    aaz.setAttribute(
-      "onclick",
-      `openDynamicModal('${z.name}', '${z.description}', '${z.url}')`,
-    );
+    bbg.setAttribute('onclick', `openDynamicModal('${z.name}', '${z.description}', '${z.url}')`);
     const kk = document.createElement("img");
+    bbc.setAttribute('onclick', `window.location.href = '${__uv$config.prefix + __uv$config.encodeUrl(z.url)}'`);
 
     l1k.innerText = z.name;
     kk.src = z.img;
