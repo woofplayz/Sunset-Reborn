@@ -12,7 +12,7 @@
   --seperator-color: #1e1e1e;
   --light-hover-bg: #222222;
   --selected-color: #2f2e2e;
-  --newtab-text-color: #5f6368;
+  --newtab-text-color: #5f6368; 
   --light-color: #e5e5e5;
   --light-bg: #1b1b1b;
   --svg-shade: #a5a5a5;
@@ -673,6 +673,7 @@
 .theme-option {
   display: flex;
   flex-direction: row;
+  flex-direction: row;
   align-items: center;
   gap: 15px;
   cursor: pointer;
@@ -706,6 +707,8 @@
 }
 
 .theme-preview {
+  width: 50px;
+  height: 50px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
